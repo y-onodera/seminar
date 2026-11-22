@@ -11,6 +11,7 @@
 
 | パス | 内容 |
 |---|---|
+| `README.md` | GitHub での入口。骨子と、GitHub Pages で公開しているスライド（`第1回_スライド/`）・ノートへのリンク |
 | `00_骨子.md` | 骨子。「整理を進めるうえでの前提条件」（スライドに載せない約束事）と「スライドに反映する内容」の2部構成。章番号はスライドの部の番号にそろえる |
 | `deck/project/` | HTMLスライドの元ファイル（`deck.json`・`deck.css`・`slides/*.html`）。claude.ai の Slides 型 Artifact として公開している |
 | `export_html.py` | `python -I export_html.py` で、`第1回_スライド/`（1枚1ファイルのHTML、ダブルクリックで開ける）と `第1回_スライドノート.txt` を書き出す |
