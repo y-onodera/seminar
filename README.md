@@ -7,7 +7,7 @@
 | 資料 | リンク |
 |---|---|
 | 骨子 | [00_骨子.md](00_骨子.md) |
-| 調査メモ | [reference/](reference/) |
+| 調査メモ | [調査メモ/](%E8%AA%BF%E6%9F%BB%E3%83%A1%E3%83%A2/) |
 | スライド（目次） | [第1回 スライド 目次](https://y-onodera.github.io/seminar/%E7%AC%AC1%E5%9B%9E_%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%89/00_%E7%9B%AE%E6%AC%A1.html) |
 | スライド（1枚目から順に見る） | [第1回 スライド](https://y-onodera.github.io/seminar/%E7%AC%AC1%E5%9B%9E_%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%89/01_cover.html) |
 | スライドノート | [第1回_スライドノート.txt](%E7%AC%AC1%E5%9B%9E_%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%89%E3%83%8E%E3%83%BC%E3%83%88.txt) |
