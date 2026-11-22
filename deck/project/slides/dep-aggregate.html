@@ -1,0 +1,33 @@
+<section id="dep-aggregate" class="l2">
+<p class="eyebrow">4 伝票の種類｜掛け金なし × 費用・収益あり</p>
+<h2>減価償却費①：集約と配賦</h2>
+<p class="lead">資産ごとの減価償却費を［勘定科目］× セグメントにまとめる。仕訳の行では資産を区別しない</p>
+<div class="row">
+<div class="col f6">
+<table class="tbl">
+<tr class="hd"><th style="width:22%">資産</th><th style="width:26%">BSセグメント</th><th style="width:52%">利用する部門・プロジェクト</th></tr>
+<tr class="ra"><td>機械A</td><td>事業X</td><td>製造1課・PJ-a</td></tr>
+<tr class="ra"><td>機械B</td><td>事業X</td><td>製造1課・PJ-a</td></tr>
+<tr class="ra"><td>機械C</td><td>事業X</td><td>販売1課・PJ-b、製造1課と分けて負担</td></tr>
+</table>
+<x-shape kind="arrow-down" class="arrd"></x-shape>
+<table class="tbl">
+<tr class="hd"><th style="width:10%">貸借</th><th style="width:40%">勘定科目</th><th style="width:20%">BSセグメント</th><th style="width:30%">PLセグメント</th></tr>
+<tr class="r2"><td>借</td><td>製造経費・減価償却費</td><td>事業X</td><td>製造1課・PJ-a</td></tr>
+<tr class="r2"><td>借</td><td>販管費・減価償却費</td><td>事業X</td><td>販売1課・PJ-b</td></tr>
+<tr class="r1"><td>貸</td><td>減価償却累計額</td><td>事業X</td><td>－</td></tr>
+</table>
+<p class="note">例：用途別に勘定科目を分け、BSとPLのセグメントを分ける場合</p>
+</div>
+<div class="card f4">
+<h3 class="c2">確認すべきポイント</h3>
+<ul class="pts">
+<li><span class="k">［勘定科目］［PLセグメント］</span>各資産の減価償却費が、方針どおりの勘定科目・セグメントに集約されているか。集約先のセグメントが漏れていないか</li>
+<li><span class="k">［PLセグメント］</span>配賦する方針では、負担する部門ごとの行が漏れなく作られているか</li>
+</ul>
+<p class="note">伝票の切り方は2部［伝票番号］、減価償却費の勘定科目は3部「費用・収益の勘定」のとおり</p>
+</div>
+</div>
+<p class="foot">仕訳機能セミナー</p>
+<aside>【2分（累計47.5分）】減価償却費は件数が最も多い仕訳。仕訳は勘定科目×セグメントを集約先とするため、資産ごとの減価償却費はその単位にまとめられ、仕訳の行では資産を区別しない。集約先のセグメントが漏れると、部門・プロジェクト別の費用が分からなくなる。機械Cのように複数の部門で負担する（配賦する）方針では、1つの資産から部門ごとの行が作られる。繰延資産の償却、長期前払費用の費用化も、仕訳の形は同じ。伝票の切り方と減価償却費の勘定科目は、2部・3部のとおり。</aside>
+</section>
