@@ -1,35 +1,16 @@
 <section id="transfer" class="l2">
-<p class="eyebrow">4 伝票の種類｜掛け金なし × 費用・収益なし</p>
+<p class="eyebrow">4 固定資産に関係する伝票の種類</p>
 <h2>振替</h2>
-<p class="lead">どの台帳の変更で固定資産勘定の振替が作られるかは、セグメントの持ち方で変わる</p>
-<div class="row">
-<div class="col f5">
+<p class="lead">資産の種類と、固定資産勘定の行のセグメントを変更したときに作られる</p>
 <table class="tbl">
-<tr class="hd"><th style="width:14%">貸借</th><th style="width:50%">勘定科目</th><th style="width:36%">BSセグメント</th></tr>
+<tr class="hd2"><th style="width:12%">貸借</th><th style="width:44%">勘定科目</th><th style="width:44%">セグメント</th></tr>
 <tr class="r1"><td>借</td><td>機械装置</td><td>事業Y</td></tr>
 <tr class="r1"><td>貸</td><td>機械装置</td><td>事業X</td></tr>
-<tr class="r1"><td>借</td><td>減価償却累計額</td><td>事業X</td></tr>
-<tr class="r1"><td>貸</td><td>減価償却累計額</td><td>事業Y</td></tr>
+<tr class="r0"><td>借</td><td>減価償却累計額</td><td>事業X</td></tr>
+<tr class="r0"><td>貸</td><td>減価償却累計額</td><td>事業Y</td></tr>
 </table>
-<p class="note">例：事業X → 事業Y に変更、間接法の場合</p>
-<div class="card t0">
-<h3>バリエーション：どの変更で作られるか</h3>
-<ul class="pts">
-<li>BSとPLのセグメントを分ける：資産の種類・BSセグメントの変更で作られ、PLセグメントだけの変更では作られない</li>
-<li>分けない：固定資産勘定の行が持つセグメントの変更で作られる</li>
-</ul>
-</div>
-</div>
-<div class="card f4">
-<h3 class="c2">確認すべきポイント</h3>
-<ul class="pts">
-<li>作られるべき変更で作られ、作られるべきでない変更で作られていないか</li>
-<li><span class="k">［勘定科目］［BSセグメント］</span>変更前で消し、変更後で計上しているか</li>
-<li>設けている勘定（資産勘定・減価償却累計額・減損損失累計額）がすべて振り替えられているか</li>
-</ul>
-<p class="note">減価償却費の振替は「減価償却費②」で扱う</p>
-</div>
-</div>
+<p class="note">例：事業X → 事業Y、間接法の場合</p>
+<p class="note">費用・収益の行だけが持つセグメント（部門など）の変更では作られない</p>
 <p class="foot">仕訳機能セミナー</p>
-<aside>【2分（累計43分）】本資料で「振替」と言うときは、この仕訳を指す。振替は、固定資産勘定の行だけで完結する。BSとPLのセグメントを分けるかどうかで、どの台帳の変更で振替が作られるかが変わる。変更前の勘定科目・セグメントで消して変更後で計上し、設けている勘定をすべて振り替える。振替が漏れると、その後の売却・除却で元帳に残高が残る（増やす仕訳と減らす仕訳の一致）。減価償却費の振替は減価償却費②で扱う。</aside>
+<aside>【1.5分（累計47.5分）】振替は、台帳で資産の種類や、固定資産勘定の行のセグメントを変更したときに作られる。例は事業Xから事業Yへの変更で、間接法なので資産勘定と減価償却累計額の両方を付け替える。部門など、費用・収益の行だけが持つセグメントの変更では、固定資産勘定の振替は作られない。</aside>
 </section>
