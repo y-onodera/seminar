@@ -14,6 +14,7 @@
 |---|---|
 | `README.md` | GitHub での入口。骨子と、GitHub Pages で公開しているスライド（`第1回_スライド/`）・ノートへのリンク |
 | `00_骨子.md` | 骨子。「整理を進めるうえでの前提条件」（スライドに載せない約束事）と「スライドに反映する内容」の2部構成。章番号はスライドの部の番号にそろえる |
+| `骨子_節の関係.csv` | 骨子の節どうしの関係（参照）の一覧。列は from（参照元の節）・to（参照先の節）・relation（つながりの内容）・body（本文に参照を残すか：残す／外す）。本文に書かない後ろの節への参照もここで管理する |
 | `調査メモ/` | 内容の裏付けとして調べたことの記録（経緯・出典・確かさ）。骨子の正本ではない。一覧と書き方は `調査メモ/README.md`。要点は skill の references/ に骨子のテーマ別にまとめている |
 | `deck/project/` | HTMLスライドの元ファイル（`deck.json`・`deck.css`・`slides/*.html`）。claude.ai の Slides 型 Artifact（非公開）としても公開している。Artifact の更新はローカルの Claude Code から行う（file_path に `deck.json`、root に `deck` フォルダ、files に変更したスライド） |
 | `export_html.py` | `python -I export_html.py` で、`第1回_スライド/`（1枚1ファイルのHTML、ダブルクリックで開ける）と `第1回_スライドノート.txt` を書き出す |
