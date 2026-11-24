@@ -31,10 +31,9 @@ section.cover, section.closing { background: #16343A; color: #EEF3F1; padding: 1
 .eyebrow { align-self: flex-start; font-size: 24px; font-weight: 700; color: #FBFBF8; background: #4A5A61; padding: 6px 22px; border-radius: 40px; }
 .l1 .eyebrow { background: #0F6E64; }
 .l2 .eyebrow { background: #A8530F; }
+.l3 .eyebrow { background: #2F5D8A; }
 h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 .lead { font-size: 28px; font-weight: 700; color: #4A5A61; line-height: 1.45; }
-.l1 .lead { color: #0F6E64; }
-.l2 .lead { color: #A04E0E; }
 
 /* レイアウト */
 .row { display: flex; flex-direction: row; gap: 32px; align-items: stretch; }
@@ -61,9 +60,18 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 .note { font-size: 24px; line-height: 1.45; color: #5B666B; }
 .k { color: #0F6E64; font-weight: 700; }
 .o { color: #A04E0E; font-weight: 700; }
+.u { font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+
+/* 本資料の呼び方（定義の枠） */
+.defs { background: #FDFDFB; border-radius: 20px; padding: 20px 30px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0px 2px 10px rgba(22, 52, 58, 0.08); }
+.defs h3 { font-size: 26px; font-weight: 700; color: #16343A; }
+.defs .pts { font-size: 26px; }
+.defs b { color: #16343A; }
 
 /* 表 */
 .tbl { font-size: 24px; color: #1E292E; width: 100%; }
+.tbl.lg { font-size: 28px; }
+.tbl.lg td, .tbl.lg th { padding-top: .5em; padding-bottom: .5em; }
 .tbl th { color: #FBFBF8; }
 .hd { background: #4A5A61; }
 .hd1 { background: #0F6E64; }
@@ -77,8 +85,8 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 /* 図 */
 .arr { width: 64px; height: 34px; background: #8A979C; align-self: center; flex: none; }
 .arrd { width: 40px; height: 48px; background: #8A979C; align-self: center; flex: none; }
-.flowbox { flex: 1; background: #E1F0ED; border-radius: 20px; padding: 28px 24px; display: flex; flex-direction: column; gap: 10px; align-items: center; }
-.flowbox h3 { font-size: 30px; font-weight: 700; color: #0F6E64; text-align: center; }
+.flowbox { flex: 1; background: #ECEFEF; border-radius: 20px; padding: 28px 24px; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.flowbox h3 { font-size: 30px; font-weight: 700; color: #16343A; text-align: center; }
 .flowbox .txt { text-align: center; }
 
 /* 2×2 */
@@ -102,6 +110,7 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 .b0 { background: #4A5A61; }
 .b1 { background: #0F6E64; }
 .b2 { background: #A8530F; }
+.b3 { background: #2F5D8A; }
 .closing h2 { font-size: 64px; color: #FBFBF8; }
 .closing .txt { font-size: 32px; color: #D6E6E3; }
 .closing .card { background: #21474E; box-shadow: none; }
@@ -116,18 +125,17 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 <div class="row">
 <div class="card t0 f1">
 <h3>分担の形①：固定資産システムが債権・債務まで計上</h3>
-<p class="txt"><b>固定資産</b>　(借) 機械装置・仮払消費税 ／ (貸) <span class="k">未払金</span><br><b>債権・債務管理</b>　(借) <span class="k">未払金</span> ／ (貸) 預金</p>
+<p class="txt"><b>固定資産</b>　(借) 機械装置・仮払消費税 ／ (貸) <span class="u">未払金</span><br><b>債権・債務管理</b>　(借) <span class="u">未払金</span> ／ (貸) 預金</p>
 </div>
 <div class="card t0 f1">
 <h3>分担の形②：仮勘定を相殺する</h3>
-<p class="txt"><b>固定資産</b>　(借) 機械装置 ／ (貸) <span class="k">取得仮勘定</span><br><b>債権・債務管理</b>　(借) <span class="k">取得仮勘定</span>・仮払消費税 ／ (貸) 未払金</p>
+<p class="txt"><b>固定資産</b>　(借) 機械装置 ／ (貸) <span class="u">取得仮勘定</span><br><b>債権・債務管理</b>　(借) <span class="u">取得仮勘定</span>・仮払消費税 ／ (貸) 未払金</p>
 </div>
 </div>
 <div class="row">
-<div class="card t1 f1"><h3 class="c1">照合の形：消し込み</h3><p class="txt">一方が計上した残高を、他方が反対の仕訳で消して、残高をゼロにする</p></div>
-<div class="card t1 f1"><h3 class="c1">照合の形：突き合わせ</h3><p class="txt">残高は消さず、両方の記録が一致していることを確かめる</p></div>
-</div>
-<p class="note">債権・債務：未払金・未収入金　仮勘定：2つのシステムが1つの取引の仕訳を分担するときに、両方の仕訳をつなぐ勘定（本資料での呼び方）</p>
+<div class="card t0 f1"><h3>照合の形：消し込み</h3><p class="txt">一方が計上した残高を、他方が反対の仕訳で消して、残高をゼロにする</p></div>
+<div class="card t0 f1"><h3>照合の形：突き合わせ</h3><p class="txt">残高は消さず、両方の記録が一致していることを確かめる</p></div>
+</div><div class="defs"><h3>本資料の呼び方</h3><ul class="pts"><li><b>債権・債務</b>：未払金・未収入金</li><li><b>仮勘定</b>：2つのシステムが1つの取引の仕訳を分担するときに、両方の仕訳をつなぐ勘定</li></ul></div>
 <p class="foot">仕訳機能セミナー</p>
 <aside>【2.5分（累計15.5分）】3つ目は、他システムの仕訳との照合。1つの取引の仕訳を、固定資産システムとほかのシステムが分担して計上する場合に、両方の仕訳が同じ取引の同じ内訳を指していることを確かめられる単位で計上する。両方の仕訳は未払金・未収入金や仮勘定などの同じ勘定でつながるので、その勘定で取引先・参照番号・税区分などの単位をそろえる。本資料では未払金・未収入金を債権・債務と呼ぶ。仮勘定は、取得のものを取得仮勘定、売却のものを売却仮勘定、購買管理・経費精算システムとの間のものを資産計上待ちの仮勘定と呼び、建設仮勘定もこの1つ。取得・売却の分担には2つの形がある。1つは、固定資産システムが未払金・未収入金と消費税の行まで計上し、債権・債務管理システムが支払・入金の仕訳で消し込む形。もう1つは、固定資産システムが資産勘定の行を、債権・債務管理システムが消費税と未払金・未収入金の行を計上し、同じ仮勘定に反対の仕訳を計上して相殺する形。照合の単位がそろわないと、債権・債務や仮勘定の残高がゼロにならず、まだ支払っていない残高や未処理の仮勘定と区別できなくなる。合計が合っていても内訳がずれることがある。たとえば土地と建物を1枚の請求書で取得した場合、仮勘定の合計だけで照合すると、土地と建物の金額の分け方を誤っていても残高はゼロになる。グループ会社間では、売り手と買い手の債権・債務が一致しないと連結で消去できない。照合の形は、残高をゼロにする消し込みと、残高は消さずに一致を確かめる突き合わせの2つ。</aside>
 </section>

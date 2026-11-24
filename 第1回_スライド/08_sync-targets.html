@@ -31,10 +31,9 @@ section.cover, section.closing { background: #16343A; color: #EEF3F1; padding: 1
 .eyebrow { align-self: flex-start; font-size: 24px; font-weight: 700; color: #FBFBF8; background: #4A5A61; padding: 6px 22px; border-radius: 40px; }
 .l1 .eyebrow { background: #0F6E64; }
 .l2 .eyebrow { background: #A8530F; }
+.l3 .eyebrow { background: #2F5D8A; }
 h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 .lead { font-size: 28px; font-weight: 700; color: #4A5A61; line-height: 1.45; }
-.l1 .lead { color: #0F6E64; }
-.l2 .lead { color: #A04E0E; }
 
 /* レイアウト */
 .row { display: flex; flex-direction: row; gap: 32px; align-items: stretch; }
@@ -61,9 +60,18 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 .note { font-size: 24px; line-height: 1.45; color: #5B666B; }
 .k { color: #0F6E64; font-weight: 700; }
 .o { color: #A04E0E; font-weight: 700; }
+.u { font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+
+/* 本資料の呼び方（定義の枠） */
+.defs { background: #FDFDFB; border-radius: 20px; padding: 20px 30px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0px 2px 10px rgba(22, 52, 58, 0.08); }
+.defs h3 { font-size: 26px; font-weight: 700; color: #16343A; }
+.defs .pts { font-size: 26px; }
+.defs b { color: #16343A; }
 
 /* 表 */
 .tbl { font-size: 24px; color: #1E292E; width: 100%; }
+.tbl.lg { font-size: 28px; }
+.tbl.lg td, .tbl.lg th { padding-top: .5em; padding-bottom: .5em; }
 .tbl th { color: #FBFBF8; }
 .hd { background: #4A5A61; }
 .hd1 { background: #0F6E64; }
@@ -77,8 +85,8 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 /* 図 */
 .arr { width: 64px; height: 34px; background: #8A979C; align-self: center; flex: none; }
 .arrd { width: 40px; height: 48px; background: #8A979C; align-self: center; flex: none; }
-.flowbox { flex: 1; background: #E1F0ED; border-radius: 20px; padding: 28px 24px; display: flex; flex-direction: column; gap: 10px; align-items: center; }
-.flowbox h3 { font-size: 30px; font-weight: 700; color: #0F6E64; text-align: center; }
+.flowbox { flex: 1; background: #ECEFEF; border-radius: 20px; padding: 28px 24px; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.flowbox h3 { font-size: 30px; font-weight: 700; color: #16343A; text-align: center; }
 .flowbox .txt { text-align: center; }
 
 /* 2×2 */
@@ -102,6 +110,7 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 .b0 { background: #4A5A61; }
 .b1 { background: #0F6E64; }
 .b2 { background: #A8530F; }
+.b3 { background: #2F5D8A; }
 .closing h2 { font-size: 64px; color: #FBFBF8; }
 .closing .txt { font-size: 32px; color: #D6E6E3; }
 .closing .card { background: #21474E; box-shadow: none; }
@@ -114,16 +123,15 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 <h2>同期をとる対象：個別仕訳と定型仕訳</h2>
 <p class="lead">固定資産勘定の残高を動かす取引を、漏れなく仕訳にする</p>
 <table class="tbl">
-<tr class="hd1"><th style="width:14%">対象</th><th style="width:50%">取引</th><th style="width:36%">仕訳</th></tr>
+<tr class="hd"><th style="width:14%">対象</th><th style="width:50%">取引</th><th style="width:36%">仕訳</th></tr>
 <tr class="ra"><td>増加</td><td>取得</td><td>個別仕訳</td></tr>
-<tr class="ra"><td>減少</td><td>売却・除却・減損</td><td>個別仕訳</td></tr>
-<tr class="ra"><td></td><td>減価償却</td><td>定型仕訳</td></tr>
+<tr class="ra"><td rowspan="2">減少</td><td>売却・除却・減損</td><td>個別仕訳</td></tr>
+<tr class="ra"><td>減価償却</td><td>定型仕訳</td></tr>
 <tr class="ra"><td>振替</td><td>台帳で資産の種類・セグメントを変更</td><td>個別仕訳</td></tr>
 <tr class="ra"><td>訂正</td><td>過年度の計上漏れ・金額の誤りを台帳で訂正</td><td>個別仕訳</td></tr>
 <tr class="ra"><td>取消</td><td>誤って登録した取引を台帳で取消</td><td>個別仕訳（逆仕訳）</td></tr>
 </table>
-<p class="note">個別仕訳：台帳で取引を登録するたびに作る仕訳　定型仕訳：決まった時期に台帳の対象資産全体からまとめて作る仕訳</p>
-<p class="note">逆仕訳：元の仕訳と同じ勘定科目・セグメント・金額で、貸借を反対にした仕訳</p>
+<div class="defs"><h3>本資料の呼び方</h3><ul class="pts"><li><b>個別仕訳</b>：台帳で取引を登録するたびに作る仕訳</li><li><b>定型仕訳</b>：決まった時期に、台帳の対象資産全体からまとめて作る仕訳</li><li><b>逆仕訳</b>：元の仕訳と同じ勘定科目・セグメント・金額で、貸借を反対にした仕訳</li></ul></div>
 <p class="foot">仕訳機能セミナー</p>
 <aside>【2分（累計11.5分）】同期をとるには、固定資産勘定の残高を動かす取引を漏れなく仕訳にする。仕訳には、減価償却のように決まった時期に対象資産全体からまとめて作る定型仕訳と、台帳で取引を登録するたびに作る個別仕訳がある。定型仕訳は、対象期間の分を漏れなく一度だけ作れば台帳と元帳がそろう。個別仕訳は、台帳への登録と元帳への記帳の時点がずれやすく、まだ元帳に連携していない取引があると一致しない。減少では、増やしたときと同じ勘定科目・セグメントで減らさないと、元のセグメントに残高が残り、別のセグメントがマイナスになる。振替は、台帳で資産の種類やセグメントを変更したときの、元帳の勘定科目・セグメントの付け替え。付け替えないと、その後の減少が変更後の勘定科目・セグメントで作られ、一致が崩れる。訂正の仕訳は、固定資産システムで作ることも、ERPで直接訂正することもあり、どちらでも訂正後に台帳と元帳が一致している必要がある。取消は、作成した個別仕訳の逆仕訳を作る。</aside>
 </section>

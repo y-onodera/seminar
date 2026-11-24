@@ -31,10 +31,9 @@ section.cover, section.closing { background: #16343A; color: #EEF3F1; padding: 1
 .eyebrow { align-self: flex-start; font-size: 24px; font-weight: 700; color: #FBFBF8; background: #4A5A61; padding: 6px 22px; border-radius: 40px; }
 .l1 .eyebrow { background: #0F6E64; }
 .l2 .eyebrow { background: #A8530F; }
+.l3 .eyebrow { background: #2F5D8A; }
 h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 .lead { font-size: 28px; font-weight: 700; color: #4A5A61; line-height: 1.45; }
-.l1 .lead { color: #0F6E64; }
-.l2 .lead { color: #A04E0E; }
 
 /* レイアウト */
 .row { display: flex; flex-direction: row; gap: 32px; align-items: stretch; }
@@ -61,9 +60,18 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 .note { font-size: 24px; line-height: 1.45; color: #5B666B; }
 .k { color: #0F6E64; font-weight: 700; }
 .o { color: #A04E0E; font-weight: 700; }
+.u { font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+
+/* 本資料の呼び方（定義の枠） */
+.defs { background: #FDFDFB; border-radius: 20px; padding: 20px 30px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0px 2px 10px rgba(22, 52, 58, 0.08); }
+.defs h3 { font-size: 26px; font-weight: 700; color: #16343A; }
+.defs .pts { font-size: 26px; }
+.defs b { color: #16343A; }
 
 /* 表 */
 .tbl { font-size: 24px; color: #1E292E; width: 100%; }
+.tbl.lg { font-size: 28px; }
+.tbl.lg td, .tbl.lg th { padding-top: .5em; padding-bottom: .5em; }
 .tbl th { color: #FBFBF8; }
 .hd { background: #4A5A61; }
 .hd1 { background: #0F6E64; }
@@ -77,8 +85,8 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 /* 図 */
 .arr { width: 64px; height: 34px; background: #8A979C; align-self: center; flex: none; }
 .arrd { width: 40px; height: 48px; background: #8A979C; align-self: center; flex: none; }
-.flowbox { flex: 1; background: #E1F0ED; border-radius: 20px; padding: 28px 24px; display: flex; flex-direction: column; gap: 10px; align-items: center; }
-.flowbox h3 { font-size: 30px; font-weight: 700; color: #0F6E64; text-align: center; }
+.flowbox { flex: 1; background: #ECEFEF; border-radius: 20px; padding: 28px 24px; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.flowbox h3 { font-size: 30px; font-weight: 700; color: #16343A; text-align: center; }
 .flowbox .txt { text-align: center; }
 
 /* 2×2 */
@@ -102,6 +110,7 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 .b0 { background: #4A5A61; }
 .b1 { background: #0F6E64; }
 .b2 { background: #A8530F; }
+.b3 { background: #2F5D8A; }
 .closing h2 { font-size: 64px; color: #FBFBF8; }
 .closing .txt { font-size: 32px; color: #D6E6E3; }
 .closing .card { background: #21474E; box-shadow: none; }
@@ -114,13 +123,13 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 <h2>取得と売却：債権・債務・消費税の計上先</h2>
 <p class="lead">債権・債務と消費税をどちらのシステムで計上するかで、固定資産システムの仕訳の行が変わる</p>
 <table class="tbl">
-<tr class="hd2"><th style="width:18%">取引｜計上先</th><th style="width:46%">固定資産システムの仕訳</th><th style="width:36%">債権・債務管理システムの仕訳</th></tr>
-<tr class="ra"><td>取得｜固定資産</td><td>(借) 機械装置［事業X］・仮払消費税［課税仕入］<br>(貸) 未払金［事業X・取引先A］</td><td>取得の仕訳なし</td></tr>
-<tr class="r0"><td>取得｜債権・債務管理</td><td>(借) 機械装置［事業X］<br>(貸) 取得仮勘定［事業X・課税仕入］</td><td>(借) 取得仮勘定［事業X・課税仕入］・仮払消費税<br>(貸) 未払金［事業X・取引先A］</td></tr>
-<tr class="ra"><td>売却｜固定資産</td><td>(借) 未収入金［事業X・取引先B］・減価償却累計額［事業X］<br>(貸) 機械装置［事業X］・仮受消費税［課税売上］・売却損益［事業X・製造1課］</td><td>売却の仕訳なし</td></tr>
-<tr class="r0"><td>売却｜債権・債務管理</td><td>(借) 売却仮勘定［事業X・課税売上］・減価償却累計額［事業X］<br>(貸) 機械装置［事業X］・売却損益［事業X・製造1課］</td><td>(借) 未収入金［事業X・取引先B］<br>(貸) 売却仮勘定［事業X・課税売上］・仮受消費税</td></tr>
+<tr class="hd"><th style="width:18%">取引｜計上先</th><th style="width:46%">固定資産システムの仕訳</th><th style="width:36%">債権・債務管理システムの仕訳</th></tr>
+<tr class="ra"><td>取得｜固定資産</td><td>(借) 機械装置［事業X］・<span class='u'>仮払消費税［課税仕入］</span><br>(貸) <span class='u'>未払金［事業X・取引先A］</span></td><td>取得の仕訳なし</td></tr>
+<tr class="ra"><td>取得｜債権・債務管理</td><td>(借) 機械装置［事業X］<br>(貸) <span class='u'>取得仮勘定［事業X・課税仕入］</span></td><td>(借) 取得仮勘定［事業X・課税仕入］・仮払消費税<br>(貸) 未払金［事業X・取引先A］</td></tr>
+<tr class="ra"><td>売却｜固定資産</td><td>(借) <span class='u'>未収入金［事業X・取引先B］</span>・減価償却累計額［事業X］<br>(貸) 機械装置［事業X］・<span class='u'>仮受消費税［課税売上］</span>・売却損益［事業X・製造1課］</td><td>売却の仕訳なし</td></tr>
+<tr class="ra"><td>売却｜債権・債務管理</td><td>(借) <span class='u'>売却仮勘定［事業X・課税売上］</span>・減価償却累計額［事業X］<br>(貸) 機械装置［事業X］・売却損益［事業X・製造1課］</td><td>(借) 未収入金［事業X・取引先B］<br>(貸) 売却仮勘定［事業X・課税売上］・仮受消費税</td></tr>
 </table>
-<p class="note">売却は間接法・売却益の場合</p>
+<p class="note">売却は間接法・売却益の場合。下線は、計上先によって固定資産システムの仕訳に出てくるかが変わる行</p>
 <p class="foot">仕訳機能セミナー</p>
 <aside>【3.5分（累計46分）】取得・売却の未払金・未収入金と消費税を、固定資産システムで計上するか、債権・債務管理システム（取得は債務管理、売却は債権管理）で計上するかで、固定資産システムの仕訳の行が変わる。固定資産システムで計上する場合は、未払金・未収入金と消費税の行まで固定資産システムの仕訳に含め、取引先と税区分も固定資産システムで編集する。債権・債務管理システムで計上する場合の例は、仮勘定を経由し、参照番号×税区分で消し込む形。固定資産システムは、取得では取得仮勘定を相手に資産勘定を計上し、売却では売却仮勘定を借方に計上して資産勘定と減価償却累計額を減らし、差額を売却損益とする。固定資産システムの仕訳に取引先は出てこない。仮勘定には、税区分ごとに消し込むために税区分を持たせる。売却損益の行は、費用・収益の行に部門を持たせる例で、事業Xに製造1課を加えている。売却損の場合は、売却損益が借方になる。</aside>
 </section>

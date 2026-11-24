@@ -31,10 +31,9 @@ section.cover, section.closing { background: #16343A; color: #EEF3F1; padding: 1
 .eyebrow { align-self: flex-start; font-size: 24px; font-weight: 700; color: #FBFBF8; background: #4A5A61; padding: 6px 22px; border-radius: 40px; }
 .l1 .eyebrow { background: #0F6E64; }
 .l2 .eyebrow { background: #A8530F; }
+.l3 .eyebrow { background: #2F5D8A; }
 h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 .lead { font-size: 28px; font-weight: 700; color: #4A5A61; line-height: 1.45; }
-.l1 .lead { color: #0F6E64; }
-.l2 .lead { color: #A04E0E; }
 
 /* レイアウト */
 .row { display: flex; flex-direction: row; gap: 32px; align-items: stretch; }
@@ -61,9 +60,18 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 .note { font-size: 24px; line-height: 1.45; color: #5B666B; }
 .k { color: #0F6E64; font-weight: 700; }
 .o { color: #A04E0E; font-weight: 700; }
+.u { font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+
+/* 本資料の呼び方（定義の枠） */
+.defs { background: #FDFDFB; border-radius: 20px; padding: 20px 30px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0px 2px 10px rgba(22, 52, 58, 0.08); }
+.defs h3 { font-size: 26px; font-weight: 700; color: #16343A; }
+.defs .pts { font-size: 26px; }
+.defs b { color: #16343A; }
 
 /* 表 */
 .tbl { font-size: 24px; color: #1E292E; width: 100%; }
+.tbl.lg { font-size: 28px; }
+.tbl.lg td, .tbl.lg th { padding-top: .5em; padding-bottom: .5em; }
 .tbl th { color: #FBFBF8; }
 .hd { background: #4A5A61; }
 .hd1 { background: #0F6E64; }
@@ -77,8 +85,8 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 /* 図 */
 .arr { width: 64px; height: 34px; background: #8A979C; align-self: center; flex: none; }
 .arrd { width: 40px; height: 48px; background: #8A979C; align-self: center; flex: none; }
-.flowbox { flex: 1; background: #E1F0ED; border-radius: 20px; padding: 28px 24px; display: flex; flex-direction: column; gap: 10px; align-items: center; }
-.flowbox h3 { font-size: 30px; font-weight: 700; color: #0F6E64; text-align: center; }
+.flowbox { flex: 1; background: #ECEFEF; border-radius: 20px; padding: 28px 24px; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.flowbox h3 { font-size: 30px; font-weight: 700; color: #16343A; text-align: center; }
 .flowbox .txt { text-align: center; }
 
 /* 2×2 */
@@ -102,6 +110,7 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 .b0 { background: #4A5A61; }
 .b1 { background: #0F6E64; }
 .b2 { background: #A8530F; }
+.b3 { background: #2F5D8A; }
 .closing h2 { font-size: 64px; color: #FBFBF8; }
 .closing .txt { font-size: 32px; color: #D6E6E3; }
 .closing .card { background: #21474E; box-shadow: none; }
@@ -113,8 +122,8 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 <p class="eyebrow">4 固定資産に関係する伝票の種類</p>
 <h2>伝票の種類ごとの日付</h2>
 <p class="lead">個別仕訳は、取引ごとに伝票にする場合の例</p>
-<table class="tbl">
-<tr class="hd2"><th style="width:18%">伝票の種類</th><th style="width:30%">取引日</th><th style="width:52%">記帳日</th></tr>
+<table class="tbl lg">
+<tr class="hd"><th style="width:18%">伝票の種類</th><th style="width:30%">取引日</th><th style="width:52%">記帳日</th></tr>
 <tr class="ra"><td>取得</td><td>取得日</td><td>取得日</td></tr>
 <tr class="ra"><td>売却・除却</td><td>売却日・除却日</td><td>同じ日（その日までの当期の減価償却費を、先に、または同時に計上する）</td></tr>
 <tr class="ra"><td>振替</td><td>台帳の変更日</td><td>変更日（月末日に寄せることもある）</td></tr>
