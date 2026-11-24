@@ -27,7 +27,6 @@ description: 固定資産仕訳セミナー（このリポジトリ）のHTMLス
   - レイアウト：`.row`（横並び）、`.col`（縦並び）、`.f1`〜`.f6`（幅の比）
   - カード：`.card`、`.t0`（灰）・`.t1`（緑）・`.t2`（橙）、`h3` の色 `.c1`・`.c2`
   - 本文：`.pts`（箇条書き）、`.txt`、`.note`（注記）、強調 `.k`（緑）・`.o`（橙）・`.u`（太字＋下線）
-  - 定義：`.defs`（「本資料の呼び方」の枠）。聞き手に必要な定義は `.note` ではなくこの枠で見せる
   - 表：`.tbl`（余白があれば `.tbl.lg` で 28px）、見出し行 `.hd`、行の色 `.ra`・`.r1`・`.r2`、中央寄せ `.c`
   - 図：矢印 `<x-shape kind="arrow-right" class="arr">`・`<x-shape kind="arrow-down" class="arrd">`、`.flowbox`、2×2 の `.grid2`（`.gh` 見出し、`.gc` セル）
   - 表紙・最後：`section` に `cover`・`closing`。`.kicker`・`.sub`・`.badges`・`.badge`（`.b1` 1章・`.b0` 2章・`.b3` 3章・`.b2` 4章）
