@@ -28,7 +28,7 @@ description: 固定資産仕訳セミナー（このリポジトリ）のHTMLス
   - カード：`.card`、`.t0`（灰）・`.t1`（緑）・`.t2`（橙）、`h3` の色 `.c1`・`.c2`
   - 本文：`.pts`（箇条書き）、`.txt`、`.note`（注記）、強調 `.k`（緑）・`.o`（橙）・`.u`（太字＋下線）
   - 表：`.tbl`（余白があれば `.tbl.lg` で 28px）、見出し行 `.hd`、行の色 `.ra`・`.r1`・`.r2`、中央寄せ `.c`
-  - 図：矢印 `<x-shape kind="arrow-right" class="arr">`・`<x-shape kind="arrow-down" class="arrd">`、`.flowbox`、2×2 の `.grid2`（`.gh` 見出し、`.gc` セル）
+  - 図：矢印 `<x-shape kind="arrow-right" class="arr">`・`<x-shape kind="arrow-down" class="arrd">`、`.flowbox`、図の中の表の見出し `.figt`、2×2 の `.grid2`（`.gh` 見出し、`.gc` セル）
   - 表紙・最後：`section` に `cover`・`closing`。`.kicker`・`.sub`・`.badges`・`.badge`（`.b1` 1章・`.b0` 2章・`.b3` 3章・`.b2` 4章）
 - 配色の決まり（2026-11-24）
   - 緑は固定資産勘定（BS）、橙は費用・収益の勘定（PL）の意味だけに使う（強調 `.k`・`.o`、表の行 `.r1`・`.r2`）。行に色を付けるのは BS と PL を区別したいときだけで、それ以外の行は白（`.ra`）
