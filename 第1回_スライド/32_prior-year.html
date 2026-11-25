@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
-<title>26 伝票の種類と仕訳の要件 | 仕訳機能セミナー</title>
+<title>32 過年度の訂正 | 仕訳機能セミナー</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
 <style>
 * { margin: 0; }
@@ -21,7 +21,7 @@ x-shape[kind="arrow-down"] { clip-path: polygon(30% 0, 70% 0, 70% 60%, 100% 60%,
 .nav a:hover { background: #3C4447; }
 .nav .off { color: #5E6A6F; padding: 6px 16px; border: 1px solid #3C4447; border-radius: 8px; }
 </style>
-<style>body { counter-reset: page 25; }
+<style>body { counter-reset: page 31; }
 body { font-family: 'Noto Sans JP', 'Yu Gothic', Meiryo, Arial, sans-serif; color: #1E292E; }
 
 section { counter-increment: page; background: #F7F8F6; padding: 128px 128px 160px; display: flex; flex-direction: column; gap: 20px; }
@@ -119,28 +119,24 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 </style>
 </head><body>
 <div class="stage">
-<section id="voucher-types" class="l2">
+<section id="prior-year" class="l2">
 <p class="eyebrow">4 固定資産に関係する伝票の種類</p>
-<h2>伝票の種類と仕訳の要件</h2>
-<p class="lead">伝票の種類ごとに、台帳と元帳の同期、費用・収益の計上、他システムとの同期に必要な行を作る</p>
-<table class="tbl">
-<tr class="hd"><th style="width:18%">伝票の種類</th><th style="width:24%">台帳と元帳の同期</th><th style="width:30%">費用・収益の計上</th><th style="width:28%">他システムの仕訳との同期</th></tr>
-<tr class="ra"><td>取得</td><td>増加（個別仕訳）</td><td>－</td><td>債権・債務・仮勘定（建設仮勘定を含む）</td></tr>
-<tr class="ra"><td>売却</td><td>減少（個別仕訳）</td><td>売却損益</td><td>債権・債務・仮勘定</td></tr>
-<tr class="ra"><td>振替</td><td>振替（個別仕訳）</td><td>減価償却費（計上済みの分を振り替える場合）</td><td>－</td></tr>
-<tr class="ra"><td>除却</td><td>減少（個別仕訳）</td><td>除却損</td><td>－</td></tr>
-<tr class="ra"><td>減損</td><td>減少（個別仕訳）</td><td>減損損失</td><td>－</td></tr>
-<tr class="ra"><td>圧縮記帳</td><td>減少（個別仕訳）</td><td>圧縮損</td><td>－</td></tr>
-<tr class="ra"><td>減価償却</td><td>減少（定型仕訳）</td><td>減価償却費</td><td>－</td></tr>
-<tr class="ra"><td>過年度の訂正</td><td>訂正（個別仕訳）</td><td>相手勘定による</td><td>相手勘定による</td></tr>
+<h2>過年度の訂正</h2>
+<p class="lead">台帳で訂正した過年度の誤りを、当期の仕訳で元帳に反映する</p>
+<table class="tbl lg">
+<tr class="hd"><th style="width:30%">ケース</th><th style="width:70%">仕訳例（訂正用の勘定とする場合）</th></tr>
+<tr class="ra"><td>減価償却費の計上不足</td><td>(借) 雑損 ／ (貸) 減価償却累計額</td></tr>
+<tr class="ra"><td>減価償却費の計上過大</td><td>(借) 減価償却累計額 ／ (貸) 雑収益</td></tr>
+<tr class="ra"><td>取得の金額の誤り</td><td>資産勘定と訂正用の勘定で直す</td></tr>
+<tr class="ra"><td>取得の勘定科目・セグメントの誤り</td><td>資産勘定同士の付け替え（振替と同じ形）で直すこともある</td></tr>
+<tr class="ra"><td>取得の漏れ</td><td>(借) 資産勘定 ／ (貸) 雑収益<br>過年度分の減価償却費は (借) 雑損 ／ (貸) 減価償却累計額</td></tr>
 </table>
-<p class="note">取消は元の伝票の逆仕訳なので、元の伝票の種類と同じ要件が関わる</p>
 <p class="foot">仕訳機能セミナー</p>
-<aside>【2.5分（累計40.5分）】ここから4部「固定資産に関係する伝票の種類」。伝票の種類ごとに、1部の3つの要件のどれが関わるかをまとめた。取得と売却は、固定資産勘定を増減させるうえに、債権・債務や仮勘定で他システムと照合する。売却は売却損益も計上するので、3つすべてが関わる。振替は固定資産勘定の付け替えで、計上済みの減価償却費を振り替える場合は費用・収益の計上も関わる。除却・減損・圧縮記帳・減価償却は、固定資産勘定を減らし、費用・収益を計上する。過年度の訂正は、相手勘定によって関わる要件が変わる。取消は元の伝票の逆仕訳なので、元の伝票の種類と同じ要件が関わる。</aside>
+<aside>【2.5分（累計56分）】過年度の訂正の対象は、取得の仕訳の誤り、減価償却の仕訳の誤り、取得の漏れ。固定資産システムで訂正の仕訳を作る場合、固定資産勘定の相手勘定を、未払金や減価償却費などの通常の勘定のままとすることも、雑損・雑収益などの訂正用に定める勘定とすることもある。相手勘定によって持つ項目も変わり、未払金なら固定資産勘定の行と同じセグメントと取引先、雑損・雑収益なら費用・収益の行のセグメントを持つ。表は訂正用の勘定とする場合の例。直接法の場合は、減価償却累計額の代わりに資産勘定を使う。取得の漏れでは、資産を計上するときの相手勘定と、過年度分の減価償却費をどう計上するかを決める。</aside>
 </section>
 
 </div>
-<nav class="nav"><a id="prev" href="25_account-pl.html">◀ 前へ</a><span>26 / 34</span><a href="00_目次.html">目次</a><a id="next" href="27_voucher-dates.html">次へ ▶</a></nav>
+<nav class="nav"><a id="prev" href="31_dep-transfer.html">◀ 前へ</a><span>32 / 33</span><a href="00_目次.html">目次</a><a id="next" href="33_closing.html">次へ ▶</a></nav>
 
 <script>
 function fit() {
