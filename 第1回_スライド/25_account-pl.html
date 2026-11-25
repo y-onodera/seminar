@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
-<title>16 ［記帳日］と［取引日］ | 仕訳機能セミナー</title>
+<title>25 費用・収益の勘定（PL） | 仕訳機能セミナー</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
 <style>
 * { margin: 0; }
@@ -21,7 +21,7 @@ x-shape[kind="arrow-down"] { clip-path: polygon(30% 0, 70% 0, 70% 60%, 100% 60%,
 .nav a:hover { background: #3C4447; }
 .nav .off { color: #5E6A6F; padding: 6px 16px; border: 1px solid #3C4447; border-radius: 8px; }
 </style>
-<style>body { counter-reset: page 15; }
+<style>body { counter-reset: page 24; }
 body { font-family: 'Noto Sans JP', 'Yu Gothic', Meiryo, Arial, sans-serif; color: #1E292E; }
 
 section { counter-increment: page; background: #F7F8F6; padding: 128px 128px 160px; display: flex; flex-direction: column; gap: 20px; }
@@ -119,21 +119,23 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 </style>
 </head><body>
 <div class="stage">
-<section id="dates">
-<p class="eyebrow">2 仕訳の入力項目</p>
-<h2>［記帳日］と［取引日］</h2>
-<p class="lead">［記帳日］で会計期間を決め、［取引日］に取引が発生した日を入れる</p>
+<section id="account-pl" class="l3">
+<p class="eyebrow">3 固定資産に関係する勘定科目</p>
+<h2>費用・収益の勘定（PL）</h2>
+<p class="lead">減価償却費の勘定科目を、資産の種類・用途から決めておく</p>
 <table class="tbl lg">
-<tr class="hd"><th style="width:14%">項目</th><th style="width:40%">表すこと</th><th style="width:46%">個別仕訳での日付</th></tr>
-<tr class="ra"><td>記帳日</td><td>どの会計期間の数値になるか（ERPでオープンしている会計期間内の日付）</td><td>取引日と同じ日／月末日（月次で集約する場合を含む）／処理日</td></tr>
-<tr class="ra"><td>取引日</td><td>取引が発生した日。台帳の日付と突き合わせる手がかり</td><td>取引日。月次で集約して伝票にする場合は、項目を持たないこともある</td></tr>
+<tr class="hd"><th style="width:34%">減価償却費の分け方</th><th style="width:66%">勘定科目の例</th></tr>
+<tr class="ra"><td>分けない</td><td>減価償却費</td></tr>
+<tr class="ra"><td>資産の種類・分類別</td><td>ソフトウェア償却費、長期前払費用の費用化の勘定科目、繰延資産償却</td></tr>
+<tr class="ra"><td>用途別</td><td>製造経費・減価償却費、販管費・減価償却費</td></tr>
 </table>
+<p class="note">減価償却費以外：売却損益・除却損・減損損失・圧縮損を、取引ごとに使う</p>
 <p class="foot">仕訳機能セミナー</p>
-<aside>【1.5分（累計22.5分）】記帳日は、どの会計期間の数値になるかを決める日で、ERPでオープンしている会計期間内の日付にする。個別仕訳では、取引日と同じ日にすることも、月末日にすることも、処理日にすることもある。月次で集約して伝票にする場合は月末日になる。取引日は取引が発生した日で、台帳の日付と突き合わせる手がかりになる。個別仕訳を月次で集約して伝票にする場合は、取引日の項目を持たないこともある。</aside>
+<aside>【2分（累計38分）】減価償却費は、すべて減価償却費とすることも、資産の種類・分類別に分けることも、用途別に分けることもある。製造原価・販管費などの区分は、用途別に勘定科目を分けて表すことが多い。勘定科目では分けず、ERPで部門などのマスタから区分を決めることもある。減価償却費の貸方は、間接法なら減価償却累計額、直接法なら資産勘定。減価償却費以外の費用・収益は、売却・除却・減損・圧縮記帳の取引ごとに、それぞれの勘定科目を使い、資産の種類などで細かく分けることもある。</aside>
 </section>
 
 </div>
-<nav class="nav"><a id="prev" href="15_voucher.html">◀ 前へ</a><span>16 / 33</span><a href="00_目次.html">目次</a><a id="next" href="17_items-line.html">次へ ▶</a></nav>
+<nav class="nav"><a id="prev" href="24_account-asset.html">◀ 前へ</a><span>25 / 34</span><a href="00_目次.html">目次</a><a id="next" href="26_voucher-types.html">次へ ▶</a></nav>
 
 <script>
 function fit() {

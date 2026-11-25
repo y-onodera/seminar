@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
-<title>33 質疑応答 | 仕訳機能セミナー</title>
+<title>11 固定資産台帳に基づく費用・収益の計上 | 仕訳機能セミナー</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
 <style>
 * { margin: 0; }
@@ -21,7 +21,7 @@ x-shape[kind="arrow-down"] { clip-path: polygon(30% 0, 70% 0, 70% 60%, 100% 60%,
 .nav a:hover { background: #3C4447; }
 .nav .off { color: #5E6A6F; padding: 6px 16px; border: 1px solid #3C4447; border-radius: 8px; }
 </style>
-<style>body { counter-reset: page 32; }
+<style>body { counter-reset: page 10; }
 body { font-family: 'Noto Sans JP', 'Yu Gothic', Meiryo, Arial, sans-serif; color: #1E292E; }
 
 section { counter-increment: page; background: #F7F8F6; padding: 128px 128px 160px; display: flex; flex-direction: column; gap: 20px; }
@@ -119,20 +119,23 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 </style>
 </head><body>
 <div class="stage">
-<section id="closing" class="closing">
-<h2>質疑応答</h2>
-<div class="badges">
-<p class="badge b1">1 仕訳の要件</p>
-<p class="badge b0">2 仕訳の入力項目</p>
-<p class="badge b3">3 勘定科目</p>
-<p class="badge b2">4 伝票の種類</p>
-</div>
-<p class="txt">ご質問をお受けします</p>
-<aside>【4分（累計60分）】残りの時間で質疑応答。要件・入力項目・勘定科目・伝票の種類のどこからでも質問を受ける。</aside>
+<section id="req-pl" class="l1">
+<p class="eyebrow">1 仕訳の要件｜② 費用・収益の計上</p>
+<h2>固定資産台帳に基づく費用・収益の計上</h2>
+<p class="lead">外部報告・管理会計で集計できるように、台帳の資産の情報から、費用・収益を正しい勘定科目・セグメント・会計期間に計上する</p>
+<table class="tbl lg">
+<tr class="hd"><th style="width:20%">勘定</th><th style="width:19%">計上の時期</th><th style="width:31%">計上の単位</th><th style="width:30%">種類・セグメントを変更したとき</th></tr>
+<tr class="ra"><td>減価償却費</td><td>毎期くり返し</td><td>計上する対象期間の台帳の資産の種類・用途・セグメント</td><td>計上済みの分を変更後へ振り替えることもある</td></tr>
+<tr class="ra"><td>売却損益・除却損・圧縮損</td><td>売却・除却などの取引の時点</td><td>取引が発生した時点の台帳の資産の種類・セグメント</td><td>振り替えない</td></tr>
+<tr class="ra"><td>減損損失</td><td>決算などで減損を認識したとき</td><td>減損を認識した時点の台帳の資産の種類・セグメント</td><td>振り替えない</td></tr>
+</table>
+<p class="note">ここでのセグメントは、費用・収益を集計する単位。①の同期のように、残高を消すためのものではない</p>
+<p class="foot">仕訳機能セミナー</p>
+<aside>【1分（累計13.5分）】②は、固定資産台帳に基づく費用・収益の計上。ここからはPLの話で、セグメントの意味が①の同期とは変わる。同期のセグメントは、固定資産勘定の残高を台帳と一致させ、資産がなくなったらきれいに消すための単位だった。費用・収益の行のセグメントは、外部報告・管理会計で費用・収益を集計する単位で、残高を消す対象ではない。そのため、資産を使う部門など、固定資産勘定の行より細かいセグメントを持たせることもある。台帳の資産の種類・用途・セグメント・日付から、減価償却費・売却損益などを、正しい勘定科目・セグメント・会計期間に計上する。固定資産の費用・収益は台帳でしか計算・判定できない。同期がBSの話であるのに対し、こちらはPLの話で、外部報告・管理会計の数値の元になる。減価償却費は毎期くり返し計上する費用で、資産の種類・用途で決まる勘定科目と、資産を使う部門などのセグメントで計上する。複数の部門で負担する場合は配賦する。台帳で資産の種類・セグメントを変更すると、計上済みの減価償却費を変更後へ振り替えることもある。売却損益・除却損・圧縮損は、売却・除却などの取引の時点で一度だけ計上し、取引が発生した時点の資産の種類・セグメントを使う。減損損失は、取得や売却のような取引ではなく、資産の収益性が下がったことを帳簿価額に反映する会計処理で、決算などで減損を認識したときに一度だけ計上する。減損を認識した時点の資産の種類・セグメントを使う。どちらも、その後に台帳を変更しても振り替えない。</aside>
 </section>
 
 </div>
-<nav class="nav"><a id="prev" href="32_prior-year.html">◀ 前へ</a><span>33 / 33</span><a href="00_目次.html">目次</a><span class="off">次へ ▶</span></nav>
+<nav class="nav"><a id="prev" href="10_sync-image.html">◀ 前へ</a><span>11 / 34</span><a href="00_目次.html">目次</a><a id="next" href="12_req-match.html">次へ ▶</a></nav>
 
 <script>
 function fit() {

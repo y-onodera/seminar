@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
-<title>32 過年度の訂正 | 仕訳機能セミナー</title>
+<title>21 ［取引先］ | 仕訳機能セミナー</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
 <style>
 * { margin: 0; }
@@ -21,7 +21,7 @@ x-shape[kind="arrow-down"] { clip-path: polygon(30% 0, 70% 0, 70% 60%, 100% 60%,
 .nav a:hover { background: #3C4447; }
 .nav .off { color: #5E6A6F; padding: 6px 16px; border: 1px solid #3C4447; border-radius: 8px; }
 </style>
-<style>body { counter-reset: page 31; }
+<style>body { counter-reset: page 20; }
 body { font-family: 'Noto Sans JP', 'Yu Gothic', Meiryo, Arial, sans-serif; color: #1E292E; }
 
 section { counter-increment: page; background: #F7F8F6; padding: 128px 128px 160px; display: flex; flex-direction: column; gap: 20px; }
@@ -119,24 +119,25 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 </style>
 </head><body>
 <div class="stage">
-<section id="prior-year" class="l2">
-<p class="eyebrow">4 固定資産に関係する伝票の種類</p>
-<h2>過年度の訂正</h2>
-<p class="lead">台帳で訂正した過年度の誤りを、当期の仕訳で元帳に反映する</p>
-<table class="tbl lg">
-<tr class="hd"><th style="width:30%">ケース</th><th style="width:70%">仕訳例（訂正用の勘定とする場合）</th></tr>
-<tr class="ra"><td>減価償却費の計上不足</td><td>(借) 雑損 ／ (貸) 減価償却累計額</td></tr>
-<tr class="ra"><td>減価償却費の計上過大</td><td>(借) 減価償却累計額 ／ (貸) 雑収益</td></tr>
-<tr class="ra"><td>取得の金額の誤り</td><td>資産勘定と訂正用の勘定で直す</td></tr>
-<tr class="ra"><td>取得の勘定科目・セグメントの誤り</td><td>資産勘定同士の付け替え（振替と同じ形）で直すこともある</td></tr>
-<tr class="ra"><td>取得の漏れ</td><td>(借) 資産勘定 ／ (貸) 雑収益<br>過年度分の減価償却費は (借) 雑損 ／ (貸) 減価償却累計額</td></tr>
-</table>
+<section id="partner">
+<p class="eyebrow">2 仕訳の入力項目</p>
+<h2>［取引先］</h2>
+<p class="lead">［取引先］を未払金・未収入金の行に入れ、消し込みの単位にする</p>
+<div class="row">
+<div class="flowbox"><h3>取得時（固定資産システム）</h3><p class="txt">(貸) 未払金<span class="u">［取引先A］</span></p></div>
+<x-shape kind="arrow-right" class="arr"></x-shape>
+<div class="flowbox"><h3>支払時（債務管理システム）</h3><p class="txt">(借) 未払金<span class="u">［取引先A］</span> ／ (貸) 預金</p></div>
+</div>
+<div class="card t0">
+<h3>固定資産勘定の行と費用・収益の行には持たせない</h3>
+<p class="txt">持たせると、元帳の残高が取引先別にも分かれ、台帳と突き合わせる単位がずれる</p>
+</div>
 <p class="foot">仕訳機能セミナー</p>
-<aside>【2.5分（累計56分）】過年度の訂正の対象は、取得の仕訳の誤り、減価償却の仕訳の誤り、取得の漏れ。固定資産システムで訂正の仕訳を作る場合、固定資産勘定の相手勘定を、未払金や減価償却費などの通常の勘定のままとすることも、雑損・雑収益などの訂正用に定める勘定とすることもある。相手勘定によって持つ項目も変わり、未払金なら固定資産勘定の行と同じセグメントと取引先、雑損・雑収益なら費用・収益の行のセグメントを持つ。表は訂正用の勘定とする場合の例。直接法の場合は、減価償却累計額の代わりに資産勘定を使う。取得の漏れでは、資産を計上するときの相手勘定と、過年度分の減価償却費をどう計上するかを決める。</aside>
+<aside>【1.5分（累計30分）】取引先は、未払金・未収入金の行に持たせ、消し込みの単位にする。必要に応じて参照番号（請求書番号など）も使う。計上時と消し込み時の取引先がそろって、はじめて取引先ごとに残高がゼロになる。取引先別の残高は、まだ支払っていない・入金されていない金額を表す。一方、固定資産勘定の行と費用・収益の行には取引先を持たせない。持たせると、元帳の残高が取引先別にも分かれ、台帳と突き合わせる単位がずれる。</aside>
 </section>
 
 </div>
-<nav class="nav"><a id="prev" href="31_dep-transfer.html">◀ 前へ</a><span>32 / 33</span><a href="00_目次.html">目次</a><a id="next" href="33_closing.html">次へ ▶</a></nav>
+<nav class="nav"><a id="prev" href="20_segment-lines.html">◀ 前へ</a><span>21 / 34</span><a href="00_目次.html">目次</a><a id="next" href="22_tax.html">次へ ▶</a></nav>
 
 <script>
 function fit() {

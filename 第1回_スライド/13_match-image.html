@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
-<title>18 明細項目②：セグメント（行単位） | 仕訳機能セミナー</title>
+<title>13 照合：つなぐ勘定の単位を相手のシステムとそろえる | 仕訳機能セミナー</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
 <style>
 * { margin: 0; }
@@ -21,7 +21,7 @@ x-shape[kind="arrow-down"] { clip-path: polygon(30% 0, 70% 0, 70% 60%, 100% 60%,
 .nav a:hover { background: #3C4447; }
 .nav .off { color: #5E6A6F; padding: 6px 16px; border: 1px solid #3C4447; border-radius: 8px; }
 </style>
-<style>body { counter-reset: page 17; }
+<style>body { counter-reset: page 12; }
 body { font-family: 'Noto Sans JP', 'Yu Gothic', Meiryo, Arial, sans-serif; color: #1E292E; }
 
 section { counter-increment: page; background: #F7F8F6; padding: 128px 128px 160px; display: flex; flex-direction: column; gap: 20px; }
@@ -119,24 +119,22 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 </style>
 </head><body>
 <div class="stage">
-<section id="items-dims">
-<p class="eyebrow">2 仕訳の入力項目</p>
-<h2>明細項目②：セグメント（行単位）</h2>
-<p class="lead">事業・部門・プロジェクトなどを、セグメントとして行ごとに入れる</p>
+<section id="match-image" class="l1">
+<p class="eyebrow">1 仕訳の要件｜③ 他システムの仕訳との照合</p>
+<h2>照合：つなぐ勘定の単位を相手のシステムとそろえる</h2>
+<p class="lead">仮勘定の残高がきれいに消えるように、つなぐ勘定の行に相手のシステムの仕訳と同じ［参照番号］［税区分］などを入れる</p>
 <table class="tbl lg">
-<tr class="hd"><th style="width:22%">項目</th><th style="width:30%">内容</th><th style="width:22%">関係する要件</th><th style="width:26%">固定資産の仕訳で持つ行</th></tr>
-<tr class="ra"><td>報告セグメント</td><td>セグメント情報の単位</td><td>外部報告、投資効率の評価</td><td>固定資産勘定の行、費用・収益の行</td></tr>
-<tr class="ra"><td>事業（利益責任単位）</td><td>損益と投下資本の責任を持つ単位</td><td>業績評価、投資効率の評価</td><td>固定資産勘定の行、費用・収益の行</td></tr>
-<tr class="ra"><td>部門（原価責任単位）</td><td>費用を負担する単位</td><td>業績評価、原価管理</td><td>費用・収益の行（固定資産勘定の行に持つこともある）</td></tr>
-<tr class="ra"><td>プロジェクト</td><td>投資案件・工事・研究テーマなど</td><td>業績評価、照合（建設仮勘定）</td><td>建設仮勘定の行、費用・収益の行</td></tr>
-<tr class="ra"><td>製品・地域など</td><td>製品群・地域・チャネルなど</td><td>管理会計</td><td>会社ごとに異なる</td></tr>
+<tr class="hd"><th style="width:24%">システム</th><th style="width:38%">あるべき</th><th style="width:38%">［参照番号］がずれた場合</th></tr>
+<tr class="ra"><td>固定資産システム</td><td>(借) 機械装置 1,000<br>(貸) <span class='u'>取得仮勘定［請求書001］</span>1,000</td><td>(借) 機械装置 1,000<br>(貸) <span class='u'>取得仮勘定［FA-0123］</span>1,000</td></tr>
+<tr class="ra"><td>債権・債務管理システム</td><td>(借) <span class='u'>取得仮勘定［請求書001］</span>1,000<br>(貸) 未払金 1,000</td><td>(借) <span class='u'>取得仮勘定［請求書001］</span>1,000<br>(貸) 未払金 1,000</td></tr>
+<tr class="r1"><td><b>元帳の取得仮勘定の残高</b></td><td><b>きれいに消える</b><br>請求書001：0</td><td><b>残高が残る</b><br>請求書001：1,000／FA-0123：△1,000</td></tr>
 </table>
 <p class="foot">仕訳機能セミナー</p>
-<aside>【2分（累計26.5分）】1部で、事業・部門・プロジェクトなどの切り口をセグメントと呼んだ。ERPでは、これらを明細の項目として持つ。報告セグメントは有価証券報告書などのセグメント情報の単位で、固定資産勘定の行と費用・収益の行の両方に持つ。事業は損益と投下資本の責任を持つ単位で、投資効率の評価のために固定資産勘定の行にも持つ。部門は費用を負担する単位で、主に費用・収益の行に持つが、固定資産勘定の行に持つこともある。プロジェクトは投資案件・工事・研究テーマなどで、建設仮勘定の消し込みにも使う。製品群・地域・チャネルなど、会社ごとのセグメントもある。セグメントは本資料での呼び方で、ERPの仕様上の項目の名前や構成とは関係しない。</aside>
+<aside>【1分（累計16分）】同期では、仕訳の勘定科目・セグメントを台帳の資産に合わせた。照合では、同じ考え方で、固定資産システムの仕訳と相手のシステムの仕訳とで、つなぐ勘定の単位をそろえる。例は、仮勘定で相殺する形の取得。左は、あるべき形で、固定資産システムが取得仮勘定の参照番号に、債権・債務管理システムと同じ請求書番号を入れた場合で、請求書001の取得仮勘定の残高はゼロになる。右は、固定資産システムが自分で採番した伝票番号FA-0123を参照番号に入れた場合。元帳では、取得仮勘定の合計はゼロでも、請求書001に1,000、FA-0123に△1,000が残り、どの請求書の分が未処理なのか区別できなくなる。税区分や取引先も同じで、相手のシステムの仕訳と同じ単位で入れないと、その単位ごとに残高が残る。同期と同じく、仮勘定の残高がきれいに消えるかどうかを意識して、つなぐ勘定の単位を決めることが大事。</aside>
 </section>
 
 </div>
-<nav class="nav"><a id="prev" href="17_items-line.html">◀ 前へ</a><span>18 / 33</span><a href="00_目次.html">目次</a><a id="next" href="19_segment-lines.html">次へ ▶</a></nav>
+<nav class="nav"><a id="prev" href="12_req-match.html">◀ 前へ</a><span>13 / 34</span><a href="00_目次.html">目次</a><a id="next" href="14_match-partners.html">次へ ▶</a></nav>
 
 <script>
 function fit() {

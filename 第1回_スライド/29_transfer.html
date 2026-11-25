@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
-<title>15 伝票の単位と［伝票の種類］ | 仕訳機能セミナー</title>
+<title>29 振替 | 仕訳機能セミナー</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
 <style>
 * { margin: 0; }
@@ -21,7 +21,7 @@ x-shape[kind="arrow-down"] { clip-path: polygon(30% 0, 70% 0, 70% 60%, 100% 60%,
 .nav a:hover { background: #3C4447; }
 .nav .off { color: #5E6A6F; padding: 6px 16px; border: 1px solid #3C4447; border-radius: 8px; }
 </style>
-<style>body { counter-reset: page 14; }
+<style>body { counter-reset: page 28; }
 body { font-family: 'Noto Sans JP', 'Yu Gothic', Meiryo, Arial, sans-serif; color: #1E292E; }
 
 section { counter-increment: page; background: #F7F8F6; padding: 128px 128px 160px; display: flex; flex-direction: column; gap: 20px; }
@@ -119,31 +119,25 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 </style>
 </head><body>
 <div class="stage">
-<section id="voucher">
-<p class="eyebrow">2 仕訳の入力項目</p>
-<h2>伝票の単位と［伝票の種類］</h2>
-<p class="lead">借方と貸方が一致する単位で、1つの伝票にする</p>
-<div class="row">
-<div class="col f5">
+<section id="transfer" class="l2">
+<p class="eyebrow">4 固定資産に関係する伝票の種類</p>
+<h2>振替</h2>
+<p class="lead">資産の種類と、固定資産勘定の行のセグメントを変更したとき、元帳の勘定科目・セグメントを付け替える</p>
 <table class="tbl lg">
-<tr class="hd"><th style="width:14%">貸借</th><th style="width:46%">勘定科目</th><th style="width:40%">セグメント</th></tr>
-<tr class="r2"><td>借</td><td>減価償却費</td><td>事業X・製造1課</td></tr>
-<tr class="r2"><td>借</td><td>減価償却費</td><td>事業X・販売1課</td></tr>
-<tr class="r1"><td>貸</td><td>減価償却累計額</td><td>事業X</td></tr>
+<tr class="hd"><th style="width:12%">貸借</th><th style="width:44%">勘定科目</th><th style="width:44%">セグメント</th></tr>
+<tr class="ra"><td>借</td><td>機械装置</td><td>事業Y</td></tr>
+<tr class="ra"><td>貸</td><td>機械装置</td><td>事業X</td></tr>
+<tr class="ra"><td>借</td><td>減価償却累計額</td><td>事業X</td></tr>
+<tr class="ra"><td>貸</td><td>減価償却累計額</td><td>事業Y</td></tr>
 </table>
-<p class="note">費用・収益の行が異なる部門を持っても、1つの伝票にまとめる</p>
-</div>
-<div class="col f5">
-<div class="card t0"><h3>個別仕訳の伝票</h3><ul class="pts"><li>取引ごとに1つの伝票</li><li>月次でまとめて1つの伝票（記帳日は月末、セグメントで集約）</li></ul></div>
-<div class="card t0"><h3>［伝票の種類］</h3><ul class="pts"><li>取引の区分ごと／固定資産で1つ／ERP標準のもの</li><li>項目がないこともある</li></ul></div>
-</div>
-</div>
+<p class="note">例：事業X → 事業Y、間接法の場合</p>
+<p class="note">費用・収益の行だけが持つセグメント（部門など）の変更では作られない</p>
 <p class="foot">仕訳機能セミナー</p>
-<aside>【1.5分（累計21分）】借方と貸方が一致する単位で1つの伝票になる。固定資産勘定の行と費用・収益の行は、費用・収益の行が異なるセグメント（部門など）を持つ場合でも、1つの伝票にまとめる。個別仕訳は、台帳で登録した取引ごとに伝票にすることも、月次でまとめて記帳日を月末とし、セグメントで集約して伝票にすることもある。伝票の種類は、どの取引による仕訳かを識別するために割り当てる。取引の区分ごとに分けることも、固定資産で1つにまとめることも、ERP標準の伝票の種類を使うこともあり、項目がない場合もある。</aside>
+<aside>【1.5分（累計47.5分）】振替は、台帳で資産の種類や、固定資産勘定の行のセグメントを変更したときに作られる。例は事業Xから事業Yへの変更で、間接法なので資産勘定と減価償却累計額の両方を付け替える。部門など、費用・収益の行だけが持つセグメントの変更では、固定資産勘定の振替は作られない。</aside>
 </section>
 
 </div>
-<nav class="nav"><a id="prev" href="14_items-header.html">◀ 前へ</a><span>15 / 33</span><a href="00_目次.html">目次</a><a id="next" href="16_dates.html">次へ ▶</a></nav>
+<nav class="nav"><a id="prev" href="28_acq-sale.html">◀ 前へ</a><span>29 / 34</span><a href="00_目次.html">目次</a><a id="next" href="30_asset-reduction.html">次へ ▶</a></nav>
 
 <script>
 function fit() {

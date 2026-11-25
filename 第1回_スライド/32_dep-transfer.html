@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
-<title>22 勘定科目の全体像 | 仕訳機能セミナー</title>
+<title>32 減価償却費②：台帳変更時の振替 | 仕訳機能セミナー</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
 <style>
 * { margin: 0; }
@@ -21,7 +21,7 @@ x-shape[kind="arrow-down"] { clip-path: polygon(30% 0, 70% 0, 70% 60%, 100% 60%,
 .nav a:hover { background: #3C4447; }
 .nav .off { color: #5E6A6F; padding: 6px 16px; border: 1px solid #3C4447; border-radius: 8px; }
 </style>
-<style>body { counter-reset: page 21; }
+<style>body { counter-reset: page 31; }
 body { font-family: 'Noto Sans JP', 'Yu Gothic', Meiryo, Arial, sans-serif; color: #1E292E; }
 
 section { counter-increment: page; background: #F7F8F6; padding: 128px 128px 160px; display: flex; flex-direction: column; gap: 20px; }
@@ -119,28 +119,27 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 </style>
 </head><body>
 <div class="stage">
-<section id="accounts" class="l3">
-<p class="eyebrow">3 固定資産に関係する勘定科目</p>
-<h2>勘定科目の全体像</h2>
-<p class="lead">勘定科目ごとに、関わる要件と、入れる入力項目を決める</p>
-<table class="tbl">
-<tr class="hd"><th style="width:36%">勘定科目</th><th style="width:9%">BS・PL</th><th style="width:27%">関係する要件</th><th style="width:28%">主な入力項目</th></tr>
-<tr class="r1"><td>固定資産勘定</td><td>BS</td><td>同期、外部報告・管理会計</td><td>勘定科目、事業・報告セグメント</td></tr>
-<tr class="r2"><td>減価償却費</td><td>PL</td><td>費用・収益の計上、外部報告・管理会計</td><td>固定資産勘定の行と同じセグメント＋部門・プロジェクト</td></tr>
-<tr class="r2"><td>売却損益・除却損・減損損失・圧縮損</td><td>PL</td><td>費用・収益の計上、外部報告・管理会計</td><td>取引が発生した時点の台帳のセグメント</td></tr>
-<tr class="r2"><td>訂正用の勘定（雑損・雑収益など）</td><td>PL</td><td>同期（過年度の訂正）</td><td>費用・収益の行と同じセグメント</td></tr>
-<tr class="ra"><td>未払金・未収入金</td><td>BS</td><td>照合</td><td>取引先</td></tr>
-<tr class="ra"><td>仮払・仮受消費税</td><td>BS</td><td>照合（消費税の申告）</td><td>税区分</td></tr>
-<tr class="ra"><td>債権・債務管理システムとの間の仮勘定</td><td>BS</td><td>照合</td><td>セグメント、参照番号、税区分</td></tr>
-<tr class="ra"><td>資産計上待ちの仮勘定</td><td>BS</td><td>照合</td><td>セグメント、参照番号、税区分</td></tr>
-<tr class="ra"><td>建設仮勘定</td><td>BS</td><td>照合</td><td>プロジェクト</td></tr>
-</table>
+<section id="dep-transfer" class="l2">
+<p class="eyebrow">4 固定資産に関係する伝票の種類</p>
+<h2>減価償却費②：台帳変更時の振替</h2>
+<p class="lead">台帳で資産の種類・セグメントを変更したとき、計上済みの減価償却費を振り替える</p>
+<div class="card t0">
+<h3>例：機械Aの部門を製造1課 → 販売1課に変更（用途別に勘定科目を分ける場合）</h3>
+<p class="txt">(借) <span class="o">販管費・減価償却費</span>［事業X・販売1課］ ／ (貸) <span class="o">製造経費・減価償却費</span>［事業X・製造1課］</p>
+<p class="txt">固定資産勘定は振り替わらない</p>
+</div>
+<p class="txt"><b>振り替える範囲</b></p>
+<div class="row">
+<div class="card t0 f1"><p class="txt">当期の期首から計上済みの分をすべて振り替える</p></div>
+<div class="card t0 f1"><p class="txt">変更日を基準に振り替える</p></div>
+<div class="card t0 f1"><p class="txt">振り替えず、変更月以降の分だけを新しいセグメントで計上する</p></div>
+</div>
 <p class="foot">仕訳機能セミナー</p>
-<aside>【2.5分（累計34.5分）】ここから3部「固定資産に関係する勘定科目」。固定資産の仕訳に出てくる勘定科目と、1部の要件、2部の入力項目との関係をまとめた。固定資産勘定は同期と外部報告・管理会計（セグメント情報、投資効率の評価）に関わり、勘定科目と事業・報告セグメントを持つ。減価償却費などの費用・収益の勘定は、費用・収益の計上と外部報告・管理会計に関わる。訂正用の勘定は、過年度の訂正で使う。未払金・未収入金、仮払・仮受消費税、仮勘定は照合に関わる。資産計上待ちの仮勘定は購買管理・経費精算システムとの間のもの。建設仮勘定は、工事・プロジェクト管理システムが工事・プロジェクトごとの支出を集める勘定で、固定資産システムは完成時に資産勘定へ振り替えて消し込む。</aside>
+<aside>【2分（累計53.5分）】台帳で資産の種類・セグメントを変更したときの、計上済みの減価償却費の振替。用途別に勘定科目を分けている場合は、セグメントだけでなく勘定科目も振り替わる。例では、機械Aの部門を製造1課から販売1課に変更すると、固定資産勘定は振り替わらず、減価償却費が製造経費・減価償却費から販管費・減価償却費に振り替わる。振り替える範囲は、当期の期首から計上済みの分をすべて振り替えることも、変更日を基準に振り替えることも、振り替えずに変更月以降の分だけを新しいセグメントで計上することもある。</aside>
 </section>
 
 </div>
-<nav class="nav"><a id="prev" href="21_tax.html">◀ 前へ</a><span>22 / 33</span><a href="00_目次.html">目次</a><a id="next" href="23_account-asset.html">次へ ▶</a></nav>
+<nav class="nav"><a id="prev" href="31_dep-aggregate.html">◀ 前へ</a><span>32 / 34</span><a href="00_目次.html">目次</a><a id="next" href="33_prior-year.html">次へ ▶</a></nav>
 
 <script>
 function fit() {

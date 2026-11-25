@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
-<title>29 除却・減損・圧縮記帳 | 仕訳機能セミナー</title>
+<title>15 ヘッダ項目（伝票単位） | 仕訳機能セミナー</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
 <style>
 * { margin: 0; }
@@ -21,7 +21,7 @@ x-shape[kind="arrow-down"] { clip-path: polygon(30% 0, 70% 0, 70% 60%, 100% 60%,
 .nav a:hover { background: #3C4447; }
 .nav .off { color: #5E6A6F; padding: 6px 16px; border: 1px solid #3C4447; border-radius: 8px; }
 </style>
-<style>body { counter-reset: page 28; }
+<style>body { counter-reset: page 14; }
 body { font-family: 'Noto Sans JP', 'Yu Gothic', Meiryo, Arial, sans-serif; color: #1E292E; }
 
 section { counter-increment: page; background: #F7F8F6; padding: 128px 128px 160px; display: flex; flex-direction: column; gap: 20px; }
@@ -119,22 +119,28 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 </style>
 </head><body>
 <div class="stage">
-<section id="asset-reduction" class="l2">
-<p class="eyebrow">4 固定資産に関係する伝票の種類</p>
-<h2>除却・減損・圧縮記帳</h2>
-<p class="lead">固定資産勘定を減らし、損失を計上する</p>
-<table class="tbl lg">
-<tr class="hd"><th style="width:18%">伝票の種類</th><th style="width:82%">仕訳例</th></tr>
-<tr class="ra"><td>除却</td><td>(借) 減価償却累計額・除却損 ／ (貸) 機械装置（間接法の場合）</td></tr>
-<tr class="ra"><td>減損</td><td>(借) 減損損失 ／ (貸) 機械装置（直接控除形式）または減損損失累計額（間接控除形式）</td></tr>
-<tr class="ra"><td>圧縮記帳</td><td>(借) 圧縮損 ／ (貸) 機械装置（直接減額方式の場合）</td></tr>
+<section id="items-header">
+<p class="eyebrow">2 仕訳の入力項目</p>
+<h2>ヘッダ項目（伝票単位）</h2>
+<p class="lead">ヘッダに、会社・帳簿・伝票番号・日付など、伝票全体に共通する情報を入れる</p>
+<table class="tbl">
+<tr class="hd"><th style="width:24%">項目</th><th style="width:41%">内容</th><th style="width:35%">関係する要件</th></tr>
+<tr class="ra"><td>会社</td><td>記帳の単位となる法人</td><td>外部報告（法人別の財務諸表・連結）</td></tr>
+<tr class="ra"><td>帳簿（会計基準）</td><td>複数の会計基準で報告する場合の記帳先</td><td>外部報告</td></tr>
+<tr class="ra"><td>伝票番号</td><td>伝票を識別する番号</td><td>内部統制（監査証跡）</td></tr>
+<tr class="ra"><td>伝票の種類</td><td>取引の区分</td><td>同期（どの取引による増減か）</td></tr>
+<tr class="ra"><td>記帳日</td><td>会計期間を決める日</td><td>外部報告・管理会計、費用・収益の計上</td></tr>
+<tr class="ra"><td>取引日</td><td>取引が発生した日、証憑の日付</td><td>内部統制（監査証跡）</td></tr>
+<tr class="ra"><td>通貨・換算レート</td><td>取引通貨と換算の条件</td><td>外部報告</td></tr>
+<tr class="ra"><td>参照番号・摘要</td><td>元の取引や連携元のシステムで採番した番号、伝票の説明</td><td>内部統制（監査証跡）、同期、照合</td></tr>
+<tr class="ra"><td>取消の情報、入力者・承認者</td><td>取消元の伝票、誰が作り誰が承認したか</td><td>同期（取消）、内部統制（承認）</td></tr>
 </table>
 <p class="foot">仕訳機能セミナー</p>
-<aside>【2分（累計49.5分）】除却・減損・圧縮記帳は、どれも固定資産を減らし、損失を計上する仕訳。固定資産勘定は増やしたときと同じ勘定科目・セグメントで減らし、費用・収益の勘定はそれぞれの勘定科目を使う。減損は、減損損失累計額を設けない直接控除形式では資産勘定を、設ける間接控除形式では減損損失累計額を貸方にする。撤去費用は、除却の仕訳とは別の仕訳で扱う。圧縮記帳を積立金方式で行う場合は、固定資産システムの仕訳は作られない。</aside>
+<aside>【2.5分（累計19.5分）】ここから2部「仕訳の入力項目」。1部の要件は、仕訳の入力項目に何をどう入れるかで満たされる。ERPの仕訳は、伝票単位のヘッダと行単位の明細からなる。どの項目をヘッダ・明細のどちらで持つか、そもそもその項目があるかは製品によって異なるので、一般的な名前で書いている。呼び方も製品で違い、帳簿は元帳、記帳日は転記日付・計上日、取引日は伝票日付・証憑日付などと呼ばれる。固定資産の仕訳での使い方として、会社は台帳の資産が属する会社、帳簿は固定資産システムの台帳（会計用・IFRS用など）とERPの帳簿の対応になる。伝票番号はERPの中で整合性をとって採番し、固定資産システムで採番した番号は参照番号に入れる事例が多い。参照番号には、照合のために、債権・債務管理システムなどと同じ番号（請求書番号・発注番号など）を編集して入れることもある。摘要は、取得・除却などの区分と対象の資産が分かる説明にする。入力者・承認者は、ERPの伝票から入力証憑で確認できればよいとする場合が一般的。</aside>
 </section>
 
 </div>
-<nav class="nav"><a id="prev" href="28_transfer.html">◀ 前へ</a><span>29 / 33</span><a href="00_目次.html">目次</a><a id="next" href="30_dep-aggregate.html">次へ ▶</a></nav>
+<nav class="nav"><a id="prev" href="14_match-partners.html">◀ 前へ</a><span>15 / 34</span><a href="00_目次.html">目次</a><a id="next" href="16_voucher.html">次へ ▶</a></nav>
 
 <script>
 function fit() {
