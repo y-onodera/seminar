@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
-<title>31 除却・減損・圧縮記帳 | 仕訳機能セミナー</title>
+<title>31 減価償却費①：集約と配賦 | 仕訳機能セミナー</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
 <style>
 * { margin: 0; }
@@ -119,22 +119,36 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 </style>
 </head><body>
 <div class="stage">
-<section id="asset-reduction" class="l2">
+<section id="dep-aggregate" class="l2">
 <p class="eyebrow">4 固定資産に関係する伝票の種類</p>
-<h2>除却・減損・圧縮記帳</h2>
-<p class="lead">固定資産勘定を減らし、損失を計上する</p>
+<h2>減価償却費①：集約と配賦</h2>
+<p class="lead">資産ごとの減価償却費を、［勘定科目］× セグメントにまとめて計上する</p>
+<div class="row">
+<div class="col f4">
 <table class="tbl lg">
-<tr class="hd"><th style="width:18%">伝票の種類</th><th style="width:82%">仕訳例</th></tr>
-<tr class="ra"><td>除却</td><td>(借) 減価償却累計額・除却損 ／ (貸) 機械装置（間接法の場合）</td></tr>
-<tr class="ra"><td>減損</td><td>(借) 減損損失 ／ (貸) 機械装置（直接控除形式）または減損損失累計額（間接控除形式）</td></tr>
-<tr class="ra"><td>圧縮記帳</td><td>(借) 圧縮損 ／ (貸) 機械装置（直接減額方式の場合）</td></tr>
+<tr class="hd"><th style="width:30%">資産</th><th style="width:70%">資産を使う部門</th></tr>
+<tr class="ra"><td>機械A</td><td>製造1課</td></tr>
+<tr class="ra"><td>機械B</td><td>製造1課</td></tr>
+<tr class="ra"><td>機械C</td><td>製造1課・製造2課に配賦</td></tr>
 </table>
+</div>
+<x-shape kind="arrow-right" class="arr"></x-shape>
+<div class="col f6">
+<table class="tbl lg">
+<tr class="hd"><th style="width:12%">貸借</th><th style="width:32%">勘定科目</th><th style="width:56%">セグメント</th></tr>
+<tr class="r2"><td>借</td><td>減価償却費</td><td>事業X・製造1課（機械A・B・Cの分）</td></tr>
+<tr class="r2"><td>借</td><td>減価償却費</td><td>事業X・製造2課（機械Cの分）</td></tr>
+<tr class="r1"><td>貸</td><td>減価償却累計額</td><td>事業X</td></tr>
+</table>
+</div>
+</div>
+<p class="note">繰延資産の償却、長期前払費用の費用化も、仕訳の形は同じ</p>
 <p class="foot">仕訳機能セミナー</p>
-<aside>【2分（累計49.5分）】除却・減損・圧縮記帳は、どれも固定資産を減らし、損失を計上する仕訳。固定資産勘定は増やしたときと同じ勘定科目・セグメントで減らし、費用・収益の勘定はそれぞれの勘定科目を使う。減損は、減損損失累計額を設けない直接控除形式では資産勘定を、設ける間接控除形式では減損損失累計額を貸方にする。撤去費用は、除却の仕訳とは別の仕訳で扱う。圧縮記帳を積立金方式で行う場合は、固定資産システムの仕訳は作られない。</aside>
+<aside>【2分（累計51.5分）】減価償却は定型仕訳。集約する場合は、資産ごとの減価償却費を勘定科目×セグメントの単位にまとめ、仕訳の行では資産を区別しない。減価償却費を複数の部門に配賦する場合は、1つの資産から部門ごとの行が作られる。例では、機械Cの減価償却費が製造1課と製造2課の行に分かれる。伝票は、固定資産勘定の行のセグメントごとに分けることが多く、対象期間の分を1つの伝票にすることも、資産ごとに分けることもある。繰延資産の償却、長期前払費用の費用化も、仕訳の形は同じ。</aside>
 </section>
 
 </div>
-<nav class="nav"><a id="prev" href="30_transfer.html">◀ 前へ</a><span>31 / 35</span><a href="00_目次.html">目次</a><a id="next" href="32_dep-aggregate.html">次へ ▶</a></nav>
+<nav class="nav"><a id="prev" href="30_asset-reduction.html">◀ 前へ</a><span>31 / 34</span><a href="00_目次.html">目次</a><a id="next" href="32_dep-transfer.html">次へ ▶</a></nav>
 
 <script>
 function fit() {

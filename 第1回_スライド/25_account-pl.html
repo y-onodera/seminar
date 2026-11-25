@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
-<title>35 質疑応答 | 仕訳機能セミナー</title>
+<title>25 費用・収益の勘定（PL） | 仕訳機能セミナー</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
 <style>
 * { margin: 0; }
@@ -21,7 +21,7 @@ x-shape[kind="arrow-down"] { clip-path: polygon(30% 0, 70% 0, 70% 60%, 100% 60%,
 .nav a:hover { background: #3C4447; }
 .nav .off { color: #5E6A6F; padding: 6px 16px; border: 1px solid #3C4447; border-radius: 8px; }
 </style>
-<style>body { counter-reset: page 34; }
+<style>body { counter-reset: page 24; }
 body { font-family: 'Noto Sans JP', 'Yu Gothic', Meiryo, Arial, sans-serif; color: #1E292E; }
 
 section { counter-increment: page; background: #F7F8F6; padding: 128px 128px 160px; display: flex; flex-direction: column; gap: 20px; }
@@ -119,20 +119,23 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 </style>
 </head><body>
 <div class="stage">
-<section id="closing" class="closing">
-<h2>質疑応答</h2>
-<div class="badges">
-<p class="badge b1">1 仕訳の要件</p>
-<p class="badge b0">2 仕訳の入力項目</p>
-<p class="badge b3">3 勘定科目</p>
-<p class="badge b2">4 伝票の種類</p>
-</div>
-<p class="txt">ご質問をお受けします</p>
-<aside>【4分（累計60分）】残りの時間で質疑応答。要件・入力項目・勘定科目・伝票の種類のどこからでも質問を受ける。</aside>
+<section id="account-pl" class="l3">
+<p class="eyebrow">3 固定資産に関係する勘定科目</p>
+<h2>費用・収益の勘定（PL）</h2>
+<p class="lead">減価償却費の勘定科目を、資産の種類・用途から決めておく</p>
+<table class="tbl lg">
+<tr class="hd"><th style="width:34%">減価償却費の分け方</th><th style="width:66%">勘定科目の例</th></tr>
+<tr class="ra"><td>分けない</td><td>減価償却費</td></tr>
+<tr class="ra"><td>資産の種類・分類別</td><td>ソフトウェア償却費、長期前払費用の費用化の勘定科目、繰延資産償却</td></tr>
+<tr class="ra"><td>用途別</td><td>製造経費・減価償却費、販管費・減価償却費</td></tr>
+</table>
+<p class="note">減価償却費以外：売却損益・除却損・減損損失・圧縮損を、取引ごとに使う</p>
+<p class="foot">仕訳機能セミナー</p>
+<aside>【2分（累計38分）】減価償却費は、すべて減価償却費とすることも、資産の種類・分類別に分けることも、用途別に分けることもある。製造原価・販管費などの区分は、用途別に勘定科目を分けて表すことが多い。勘定科目では分けず、ERPで部門などのマスタから区分を決めることもある。減価償却費の貸方は、間接法なら減価償却累計額、直接法なら資産勘定。減価償却費以外の費用・収益は、売却・除却・減損・圧縮記帳の取引ごとに、それぞれの勘定科目を使い、資産の種類などで細かく分けることもある。</aside>
 </section>
 
 </div>
-<nav class="nav"><a id="prev" href="34_prior-year.html">◀ 前へ</a><span>35 / 35</span><a href="00_目次.html">目次</a><span class="off">次へ ▶</span></nav>
+<nav class="nav"><a id="prev" href="24_account-asset.html">◀ 前へ</a><span>25 / 34</span><a href="00_目次.html">目次</a><a id="next" href="26_voucher-types.html">次へ ▶</a></nav>
 
 <script>
 function fit() {

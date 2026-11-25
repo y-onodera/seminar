@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
-<title>23 ［税区分］ | 仕訳機能セミナー</title>
+<title>29 振替 | 仕訳機能セミナー</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
 <style>
 * { margin: 0; }
@@ -21,7 +21,7 @@ x-shape[kind="arrow-down"] { clip-path: polygon(30% 0, 70% 0, 70% 60%, 100% 60%,
 .nav a:hover { background: #3C4447; }
 .nav .off { color: #5E6A6F; padding: 6px 16px; border: 1px solid #3C4447; border-radius: 8px; }
 </style>
-<style>body { counter-reset: page 22; }
+<style>body { counter-reset: page 28; }
 body { font-family: 'Noto Sans JP', 'Yu Gothic', Meiryo, Arial, sans-serif; color: #1E292E; }
 
 section { counter-increment: page; background: #F7F8F6; padding: 128px 128px 160px; display: flex; flex-direction: column; gap: 20px; }
@@ -119,23 +119,25 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 </style>
 </head><body>
 <div class="stage">
-<section id="tax">
-<p class="eyebrow">2 仕訳の入力項目｜明細</p>
-<h2>［税区分］</h2>
-<p class="lead">［税区分］をどの行に持たせるかは、消費税をどのシステムで計上し、仮勘定をどの単位で照合するかで変わる</p>
+<section id="transfer" class="l2">
+<p class="eyebrow">4 固定資産に関係する伝票の種類</p>
+<h2>振替</h2>
+<p class="lead">資産の種類と、固定資産勘定の行のセグメントを変更したとき、元帳の勘定科目・セグメントを付け替える</p>
 <table class="tbl lg">
-<tr class="hd"><th style="width:58%">消費税の行の計上先と、仮勘定の照合の単位</th><th style="width:42%">固定資産システムの仕訳で税区分を持たせる行</th></tr>
-<tr class="ra"><td>固定資産システムが債権・債務・消費税まで計上する</td><td>消費税の行（資産勘定の行に持たせ、ERPで消費税の行を作ることもある）</td></tr>
-<tr class="ra"><td>相手のシステムが消費税を計上し、仮勘定を［参照番号］×［税区分］で消し込む</td><td>仮勘定の行</td></tr>
-<tr class="ra"><td>相手のシステムが消費税を計上し、仮勘定を［参照番号］だけで消し込む</td><td>持たせない</td></tr>
-<tr class="ra"><td>建設仮勘定から資産勘定への振替</td><td>持たせない</td></tr>
+<tr class="hd"><th style="width:12%">貸借</th><th style="width:44%">勘定科目</th><th style="width:44%">セグメント</th></tr>
+<tr class="ra"><td>借</td><td>機械装置</td><td>事業Y</td></tr>
+<tr class="ra"><td>貸</td><td>機械装置</td><td>事業X</td></tr>
+<tr class="ra"><td>借</td><td>減価償却累計額</td><td>事業X</td></tr>
+<tr class="ra"><td>貸</td><td>減価償却累計額</td><td>事業Y</td></tr>
 </table>
+<p class="note">例：事業X → 事業Y、間接法の場合</p>
+<p class="note">費用・収益の行だけが持つセグメント（部門など）の変更では作られない</p>
 <p class="foot">仕訳機能セミナー</p>
-<aside>【2分（累計32分）】税区分は、資産の種類（土地は非課税など）と取引の税率で決まる。申告の税区分ごとの集計に固定資産の取得・売却が正しく入るように、会社全体で共通の体系にそろえる。どの行に税区分を持たせるかは、消費税の行をどちらのシステムで計上するかと、仮勘定をどの単位で照合するかで変わる。固定資産システムが消費税まで計上する場合は、その仕訳がそのまま申告の集計に入るので、消費税の行に持たせる。相手のシステムが消費税を計上し、仮勘定を参照番号×税区分で消し込む場合は、税区分ごとに仮勘定の残高をゼロにするために仮勘定の行に持たせる。たとえば、土地3,000（非課税）と建物5,000（課税）を1枚の請求書で取得し、債務管理システムが取得仮勘定・消費税・未払金を計上する場合、取得仮勘定を非課税3,000と課税5,000に分けて計上する。固定資産システムも同じ税区分で取得仮勘定を計上すると、税区分ごとに残高がゼロになる。土地と建物の金額の分け方を誤ると、税区分ごとに残高が残る。参照番号だけで消し込む場合は、税区分は相手のシステムの仕訳にあれば足りる。建設仮勘定からの振替は、消費税が支出のときに相手のシステムで計上済みなので持たせない。売却の未収入金・売却仮勘定、購買管理・経費精算システムの仮勘定も、考え方は同じ。</aside>
+<aside>【1.5分（累計47.5分）】振替は、台帳で資産の種類や、固定資産勘定の行のセグメントを変更したときに作られる。例は事業Xから事業Yへの変更で、間接法なので資産勘定と減価償却累計額の両方を付け替える。部門など、費用・収益の行だけが持つセグメントの変更では、固定資産勘定の振替は作られない。</aside>
 </section>
 
 </div>
-<nav class="nav"><a id="prev" href="22_partner.html">◀ 前へ</a><span>23 / 35</span><a href="00_目次.html">目次</a><a id="next" href="24_accounts.html">次へ ▶</a></nav>
+<nav class="nav"><a id="prev" href="28_acq-sale.html">◀ 前へ</a><span>29 / 34</span><a href="00_目次.html">目次</a><a id="next" href="30_asset-reduction.html">次へ ▶</a></nav>
 
 <script>
 function fit() {

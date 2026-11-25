@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
-<title>21 行ごとのセグメント | 仕訳機能セミナー</title>
+<title>27 伝票の種類ごとの日付 | 仕訳機能セミナー</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
 <style>
 * { margin: 0; }
@@ -21,7 +21,7 @@ x-shape[kind="arrow-down"] { clip-path: polygon(30% 0, 70% 0, 70% 60%, 100% 60%,
 .nav a:hover { background: #3C4447; }
 .nav .off { color: #5E6A6F; padding: 6px 16px; border: 1px solid #3C4447; border-radius: 8px; }
 </style>
-<style>body { counter-reset: page 20; }
+<style>body { counter-reset: page 26; }
 body { font-family: 'Noto Sans JP', 'Yu Gothic', Meiryo, Arial, sans-serif; color: #1E292E; }
 
 section { counter-increment: page; background: #F7F8F6; padding: 128px 128px 160px; display: flex; flex-direction: column; gap: 20px; }
@@ -119,23 +119,26 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 </style>
 </head><body>
 <div class="stage">
-<section id="segment-lines">
-<p class="eyebrow">2 仕訳の入力項目｜明細</p>
-<h2>行ごとのセグメント</h2>
-<p class="lead">セグメントは行ごとに持つので、同じ伝票の中でも、行によって持たせるセグメントを変えられる</p>
+<section id="voucher-dates" class="l2">
+<p class="eyebrow">4 固定資産に関係する伝票の種類</p>
+<h2>伝票の種類ごとの日付</h2>
+<p class="lead">伝票の種類ごとに、［取引日］と［記帳日］に入れる日を決める</p>
 <table class="tbl lg">
-<tr class="hd"><th style="width:34%">費用・収益の行のセグメント</th><th style="width:66%">仕訳例（減価償却）</th></tr>
-<tr class="ra"><td>固定資産勘定の行と同じ</td><td>(借) 減価償却費［事業X］ ／ (貸) 減価償却累計額［事業X］</td></tr>
-<tr class="ra"><td>より細かいセグメントを加える</td><td>(借) 減価償却費［事業X・<span class="o">製造1課</span>］ ／ (貸) 減価償却累計額［事業X］</td></tr>
-<tr class="ra"><td>部門の値を、資産を使う部門にする</td><td>(借) 減価償却費［事業X・<span class="o">製造1課</span>］ ／ (貸) 減価償却累計額［事業X・管理部］</td></tr>
+<tr class="hd"><th style="width:18%">伝票の種類</th><th style="width:30%">取引日</th><th style="width:52%">記帳日</th></tr>
+<tr class="ra"><td>取得</td><td>取得日</td><td>取得日</td></tr>
+<tr class="ra"><td>売却・除却</td><td>売却日・除却日</td><td>同じ日（その日までの当期の減価償却費を、先に、または同時に計上する）</td></tr>
+<tr class="ra"><td>振替</td><td>台帳の変更日</td><td>変更日（月末日に寄せることもある）</td></tr>
+<tr class="ra"><td>減損</td><td>測定の基準日</td><td>対象期間の末日</td></tr>
+<tr class="ra"><td>圧縮記帳</td><td>取得日</td><td>取得と同時、または後日（決算など）</td></tr>
+<tr class="ra"><td>減価償却</td><td>対象期間の末日</td><td>対象期間の末日</td></tr>
+<tr class="ra"><td>過年度の訂正</td><td>本来の取引日（過年度）または訂正日</td><td>当期</td></tr>
 </table>
-<p class="note">仕訳例では、固定資産勘定の行のセグメントを「事業」、費用・収益の行で加わるセグメントを「部門・プロジェクト」で示す</p>
 <p class="foot">仕訳機能セミナー</p>
-<aside>【2分（累計28.5分）】元帳は勘定科目×セグメントの単位で残高を持つ。そのため、セグメントは外部報告・管理会計の集計の単位であると同時に、台帳と元帳の同期の単位にもなる。仕訳には、会社が使うセグメントを持たせる。固定資産勘定の行は、台帳の資産のセグメントから編集する。費用・収益の行は、固定資産勘定の行と同じセグメントの項目を持ち、値も同じにすることが多い。そのうえで、部門・プロジェクトなどのより細かいセグメントを持つことも、持たずに固定資産勘定の行と同じ細かさにすることもある。固定資産の仕訳に、部門・プロジェクトなどだけを持ち、固定資産勘定の行と同じセグメントの項目を持たない行はない。固定資産勘定の行にも部門を持たせる場合に、費用・収益の行の部門の値を、資産を使う部門にすることもある。表の3行目は、資産は管理部、減価償却費は資産を使う製造1課という例。</aside>
+<aside>【2分（累計42.5分）】伝票の種類ごとの取引日と記帳日の例。個別仕訳は、取引ごとに伝票にする場合で示している。売却・除却は、売却日・除却日に記帳し、その日までの当期の減価償却費を、売却・除却の仕訳より前に、または同時に計上する。振替は台帳の変更日に記帳することも、月末日に寄せることもある。減損は個別仕訳で、取引日は測定の基準日、記帳日は対象期間の末日。圧縮記帳は、取得と同時に記帳することも、決算などの後日に記帳することもある。減価償却は定型仕訳で、取引日・記帳日とも対象期間の末日。過年度の訂正は、取引日を本来の取引日にすることも訂正日にすることもあり、記帳日は当期になる。</aside>
 </section>
 
 </div>
-<nav class="nav"><a id="prev" href="20_items-dims.html">◀ 前へ</a><span>21 / 35</span><a href="00_目次.html">目次</a><a id="next" href="22_partner.html">次へ ▶</a></nav>
+<nav class="nav"><a id="prev" href="26_voucher-types.html">◀ 前へ</a><span>27 / 34</span><a href="00_目次.html">目次</a><a id="next" href="28_acq-sale.html">次へ ▶</a></nav>
 
 <script>
 function fit() {

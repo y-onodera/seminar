@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
-<title>29 取得と売却：債権・債務・消費税の計上先 | 仕訳機能セミナー</title>
+<title>26 伝票の種類と仕訳の要件 | 仕訳機能セミナー</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
 <style>
 * { margin: 0; }
@@ -21,7 +21,7 @@ x-shape[kind="arrow-down"] { clip-path: polygon(30% 0, 70% 0, 70% 60%, 100% 60%,
 .nav a:hover { background: #3C4447; }
 .nav .off { color: #5E6A6F; padding: 6px 16px; border: 1px solid #3C4447; border-radius: 8px; }
 </style>
-<style>body { counter-reset: page 28; }
+<style>body { counter-reset: page 25; }
 body { font-family: 'Noto Sans JP', 'Yu Gothic', Meiryo, Arial, sans-serif; color: #1E292E; }
 
 section { counter-increment: page; background: #F7F8F6; padding: 128px 128px 160px; display: flex; flex-direction: column; gap: 20px; }
@@ -119,24 +119,28 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 </style>
 </head><body>
 <div class="stage">
-<section id="acq-sale" class="l2">
+<section id="voucher-types" class="l2">
 <p class="eyebrow">4 固定資産に関係する伝票の種類</p>
-<h2>取得と売却：債権・債務・消費税の計上先</h2>
-<p class="lead">債権・債務と消費税の計上先に合わせて、固定資産システムの仕訳の行を作る</p>
+<h2>伝票の種類と仕訳の要件</h2>
+<p class="lead">伝票の種類ごとに、同期・費用・収益の計上・照合に必要な行を作る</p>
 <table class="tbl">
-<tr class="hd"><th style="width:18%">取引｜計上先</th><th style="width:46%">固定資産システムの仕訳</th><th style="width:36%">債権・債務管理システムの仕訳</th></tr>
-<tr class="ra"><td>取得｜固定資産</td><td>(借) 機械装置［事業X］・<span class='u'>仮払消費税［課税仕入］</span><br>(貸) <span class='u'>未払金［事業X・取引先A］</span></td><td>取得の仕訳なし</td></tr>
-<tr class="ra"><td>取得｜債権・債務管理</td><td>(借) 機械装置［事業X］<br>(貸) <span class='u'>取得仮勘定［事業X・課税仕入］</span></td><td>(借) 取得仮勘定［事業X・課税仕入］・仮払消費税<br>(貸) 未払金［事業X・取引先A］</td></tr>
-<tr class="ra"><td>売却｜固定資産</td><td>(借) <span class='u'>未収入金［事業X・取引先B］</span>・減価償却累計額［事業X］<br>(貸) 機械装置［事業X］・<span class='u'>仮受消費税［課税売上］</span>・売却損益［事業X・製造1課］</td><td>売却の仕訳なし</td></tr>
-<tr class="ra"><td>売却｜債権・債務管理</td><td>(借) <span class='u'>売却仮勘定［事業X・課税売上］</span>・減価償却累計額［事業X］<br>(貸) 機械装置［事業X］・売却損益［事業X・製造1課］</td><td>(借) 未収入金［事業X・取引先B］<br>(貸) 売却仮勘定［事業X・課税売上］・仮受消費税</td></tr>
+<tr class="hd"><th style="width:18%">伝票の種類</th><th style="width:24%">台帳と元帳の同期</th><th style="width:30%">費用・収益の計上</th><th style="width:28%">他システムの仕訳との照合</th></tr>
+<tr class="ra"><td>取得</td><td>増加（個別仕訳）</td><td>－</td><td>債権・債務・仮勘定（建設仮勘定を含む）</td></tr>
+<tr class="ra"><td>売却</td><td>減少（個別仕訳）</td><td>売却損益</td><td>債権・債務・仮勘定</td></tr>
+<tr class="ra"><td>振替</td><td>振替（個別仕訳）</td><td>減価償却費（計上済みの分を振り替える場合）</td><td>－</td></tr>
+<tr class="ra"><td>除却</td><td>減少（個別仕訳）</td><td>除却損</td><td>－</td></tr>
+<tr class="ra"><td>減損</td><td>減少（個別仕訳）</td><td>減損損失</td><td>－</td></tr>
+<tr class="ra"><td>圧縮記帳</td><td>減少（個別仕訳）</td><td>圧縮損</td><td>－</td></tr>
+<tr class="ra"><td>減価償却</td><td>減少（定型仕訳）</td><td>減価償却費</td><td>－</td></tr>
+<tr class="ra"><td>過年度の訂正</td><td>訂正（個別仕訳）</td><td>相手勘定による</td><td>相手勘定による</td></tr>
 </table>
-<p class="note">売却は間接法・売却益の場合。下線は、計上先によって固定資産システムの仕訳に出てくるかが変わる行</p>
+<p class="note">取消は元の伝票の逆仕訳なので、元の伝票の種類と同じ要件が関わる</p>
 <p class="foot">仕訳機能セミナー</p>
-<aside>【3.5分（累計46分）】取得・売却の未払金・未収入金と消費税を、固定資産システムで計上するか、債権・債務管理システム（取得は債務管理、売却は債権管理）で計上するかで、固定資産システムの仕訳の行が変わる。固定資産システムで計上する場合は、未払金・未収入金と消費税の行まで固定資産システムの仕訳に含め、取引先と税区分も固定資産システムで編集する。債権・債務管理システムで計上する場合の例は、仮勘定を経由し、参照番号×税区分で消し込む形。固定資産システムは、取得では取得仮勘定を相手に資産勘定を計上し、売却では売却仮勘定を借方に計上して資産勘定と減価償却累計額を減らし、差額を売却損益とする。固定資産システムの仕訳に取引先は出てこない。仮勘定には、税区分ごとに消し込むために税区分を持たせる。売却損益の行は、費用・収益の行に部門を持たせる例で、事業Xに製造1課を加えている。売却損の場合は、売却損益が借方になる。</aside>
+<aside>【2.5分（累計40.5分）】ここから4部「固定資産に関係する伝票の種類」。伝票の種類ごとに、1部の3つの要件のどれが関わるかをまとめた。取得と売却は、固定資産勘定を増減させるうえに、債権・債務や仮勘定で他システムと照合する。売却は売却損益も計上するので、3つすべてが関わる。振替は固定資産勘定の付け替えで、計上済みの減価償却費を振り替える場合は費用・収益の計上も関わる。除却・減損・圧縮記帳・減価償却は、固定資産勘定を減らし、費用・収益を計上する。過年度の訂正は、相手勘定によって関わる要件が変わる。取消は元の伝票の逆仕訳なので、元の伝票の種類と同じ要件が関わる。</aside>
 </section>
 
 </div>
-<nav class="nav"><a id="prev" href="28_voucher-dates.html">◀ 前へ</a><span>29 / 35</span><a href="00_目次.html">目次</a><a id="next" href="30_transfer.html">次へ ▶</a></nav>
+<nav class="nav"><a id="prev" href="25_account-pl.html">◀ 前へ</a><span>26 / 34</span><a href="00_目次.html">目次</a><a id="next" href="27_voucher-dates.html">次へ ▶</a></nav>
 
 <script>
 function fit() {
