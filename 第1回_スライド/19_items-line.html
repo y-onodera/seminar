@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
-<title>15 ヘッダ項目（伝票単位） | 仕訳機能セミナー</title>
+<title>19 明細項目①：金額・勘定・取引の相手（行単位） | 仕訳機能セミナー</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
 <style>
 * { margin: 0; }
@@ -21,7 +21,7 @@ x-shape[kind="arrow-down"] { clip-path: polygon(30% 0, 70% 0, 70% 60%, 100% 60%,
 .nav a:hover { background: #3C4447; }
 .nav .off { color: #5E6A6F; padding: 6px 16px; border: 1px solid #3C4447; border-radius: 8px; }
 </style>
-<style>body { counter-reset: page 14; }
+<style>body { counter-reset: page 18; }
 body { font-family: 'Noto Sans JP', 'Yu Gothic', Meiryo, Arial, sans-serif; color: #1E292E; }
 
 section { counter-increment: page; background: #F7F8F6; padding: 128px 128px 160px; display: flex; flex-direction: column; gap: 20px; }
@@ -119,28 +119,26 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 </style>
 </head><body>
 <div class="stage">
-<section id="items-header">
-<p class="eyebrow">2 仕訳の入力項目</p>
-<h2>ヘッダ項目（伝票単位）</h2>
-<p class="lead">ヘッダに、会社・帳簿・伝票番号・日付など、伝票全体に共通する情報を入れる</p>
-<table class="tbl">
-<tr class="hd"><th style="width:24%">項目</th><th style="width:41%">内容</th><th style="width:35%">関係する要件</th></tr>
-<tr class="ra"><td>会社</td><td>記帳の単位となる法人</td><td>外部報告（法人別の財務諸表・連結）</td></tr>
-<tr class="ra"><td>帳簿（会計基準）</td><td>複数の会計基準で報告する場合の記帳先</td><td>外部報告</td></tr>
-<tr class="ra"><td>伝票番号</td><td>伝票を識別する番号</td><td>内部統制（監査証跡）</td></tr>
-<tr class="ra"><td>伝票の種類</td><td>取引の区分</td><td>同期（どの取引による増減か）</td></tr>
-<tr class="ra"><td>記帳日</td><td>会計期間を決める日</td><td>外部報告・管理会計、費用・収益の計上</td></tr>
-<tr class="ra"><td>取引日</td><td>取引が発生した日、証憑の日付</td><td>内部統制（監査証跡）</td></tr>
-<tr class="ra"><td>通貨・換算レート</td><td>取引通貨と換算の条件</td><td>外部報告</td></tr>
-<tr class="ra"><td>参照番号・摘要</td><td>元の取引や連携元のシステムで採番した番号、伝票の説明</td><td>内部統制（監査証跡）、同期、照合</td></tr>
-<tr class="ra"><td>取消の情報、入力者・承認者</td><td>取消元の伝票、誰が作り誰が承認したか</td><td>同期（取消）、内部統制（承認）</td></tr>
+<section id="items-line">
+<p class="eyebrow">2 仕訳の入力項目｜明細</p>
+<h2>明細項目①：金額・勘定・取引の相手（行単位）</h2>
+<p class="lead">行ごとに、金額と勘定科目、取引の相手と税を入れる</p>
+<table class="tbl lg">
+<tr class="hd"><th style="width:24%">項目</th><th style="width:40%">内容</th><th style="width:36%">関係する要件</th></tr>
+<tr class="ra"><td>貸借区分・金額</td><td>借方・貸方と、取引通貨・機能通貨の金額</td><td>すべての要件</td></tr>
+<tr class="ra"><td>勘定科目</td><td>財務諸表の科目につながる勘定</td><td>すべての要件</td></tr>
+<tr class="ra"><td>補助科目</td><td>勘定科目の内訳</td><td>外部報告・管理会計</td></tr>
+<tr class="ra"><td>取引先</td><td>仕入先・顧客など</td><td>照合（債権・債務の消し込みの単位）</td></tr>
+<tr class="ra"><td>関係会社</td><td>取引相手のグループ会社</td><td>照合（グループ会社間）</td></tr>
+<tr class="ra"><td>税区分</td><td>課税・非課税と税率</td><td>照合（仮勘定・債権・債務、消費税の申告）</td></tr>
+<tr class="ra"><td>照合キー・明細摘要</td><td>照合のキー（請求書番号など）、明細の説明</td><td>照合</td></tr>
 </table>
 <p class="foot">仕訳機能セミナー</p>
-<aside>【2.5分（累計19.5分）】ここから2部「仕訳の入力項目」。1部の要件は、仕訳の入力項目に何をどう入れるかで満たされる。ERPの仕訳は、伝票単位のヘッダと行単位の明細からなる。どの項目をヘッダ・明細のどちらで持つか、そもそもその項目があるかは製品によって異なるので、一般的な名前で書いている。呼び方も製品で違い、帳簿は元帳、記帳日は転記日付・計上日、取引日は伝票日付・証憑日付などと呼ばれる。固定資産の仕訳での使い方として、会社は台帳の資産が属する会社、帳簿は固定資産システムの台帳（会計用・IFRS用など）とERPの帳簿の対応になる。伝票番号はERPの中で整合性をとって採番し、固定資産システムで採番した番号は参照番号に入れる事例が多い。参照番号には、照合のために、債権・債務管理システムなどと同じ番号（請求書番号・発注番号など）を編集して入れることもある。摘要は、取得・除却などの区分と対象の資産が分かる説明にする。入力者・承認者は、ERPの伝票から入力証憑で確認できればよいとする場合が一般的。</aside>
+<aside>【2分（累計24.5分）】明細は行単位の項目。貸借区分・金額と勘定科目はすべての要件に関わる。補助科目は使う場合がある。取引先は未払金・未収入金の消し込みの単位、関係会社はグループ会社間で資産を売買する場合の照合に使う。税区分は、仮勘定・債権・債務の照合の単位と、消費税の申告との突き合わせに使う。照合キー・明細摘要は、ヘッダの参照番号とは別に、明細の単位で照合のキーを持つ場合に使う。</aside>
 </section>
 
 </div>
-<nav class="nav"><a id="prev" href="14_match-partners.html">◀ 前へ</a><span>15 / 34</span><a href="00_目次.html">目次</a><a id="next" href="16_voucher.html">次へ ▶</a></nav>
+<nav class="nav"><a id="prev" href="18_dates.html">◀ 前へ</a><span>19 / 35</span><a href="00_目次.html">目次</a><a id="next" href="20_items-dims.html">次へ ▶</a></nav>
 
 <script>
 function fit() {

@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
-<title>25 費用・収益の勘定（PL） | 仕訳機能セミナー</title>
+<title>21 行ごとのセグメント | 仕訳機能セミナー</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
 <style>
 * { margin: 0; }
@@ -21,7 +21,7 @@ x-shape[kind="arrow-down"] { clip-path: polygon(30% 0, 70% 0, 70% 60%, 100% 60%,
 .nav a:hover { background: #3C4447; }
 .nav .off { color: #5E6A6F; padding: 6px 16px; border: 1px solid #3C4447; border-radius: 8px; }
 </style>
-<style>body { counter-reset: page 24; }
+<style>body { counter-reset: page 20; }
 body { font-family: 'Noto Sans JP', 'Yu Gothic', Meiryo, Arial, sans-serif; color: #1E292E; }
 
 section { counter-increment: page; background: #F7F8F6; padding: 128px 128px 160px; display: flex; flex-direction: column; gap: 20px; }
@@ -119,23 +119,23 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 </style>
 </head><body>
 <div class="stage">
-<section id="account-pl" class="l3">
-<p class="eyebrow">3 固定資産に関係する勘定科目</p>
-<h2>費用・収益の勘定（PL）</h2>
-<p class="lead">減価償却費の勘定科目を、資産の種類・用途から決めておく</p>
+<section id="segment-lines">
+<p class="eyebrow">2 仕訳の入力項目｜明細</p>
+<h2>行ごとのセグメント</h2>
+<p class="lead">固定資産勘定の行には台帳の資産のセグメントを、費用・収益の行には管理に使うセグメントを入れる</p>
 <table class="tbl lg">
-<tr class="hd"><th style="width:34%">減価償却費の分け方</th><th style="width:66%">勘定科目の例</th></tr>
-<tr class="ra"><td>分けない</td><td>減価償却費</td></tr>
-<tr class="ra"><td>資産の種類・分類別</td><td>ソフトウェア償却費、長期前払費用の費用化の勘定科目、繰延資産償却</td></tr>
-<tr class="ra"><td>用途別</td><td>製造経費・減価償却費、販管費・減価償却費</td></tr>
+<tr class="hd"><th style="width:34%">費用・収益の行のセグメント</th><th style="width:66%">仕訳例（減価償却）</th></tr>
+<tr class="ra"><td>固定資産勘定の行と同じ</td><td>(借) 減価償却費［事業X］ ／ (貸) 減価償却累計額［事業X］</td></tr>
+<tr class="ra"><td>より細かいセグメントを加える</td><td>(借) 減価償却費［事業X・<span class="o">製造1課</span>］ ／ (貸) 減価償却累計額［事業X］</td></tr>
+<tr class="ra"><td>部門の値を、資産を使う部門にする</td><td>(借) 減価償却費［事業X・<span class="o">製造1課</span>］ ／ (貸) 減価償却累計額［事業X・管理部］</td></tr>
 </table>
-<p class="note">減価償却費以外：売却損益・除却損・減損損失・圧縮損を、取引ごとに使う</p>
+<p class="note">仕訳例では、固定資産勘定の行のセグメントを「事業」、費用・収益の行で加わるセグメントを「部門・プロジェクト」で示す</p>
 <p class="foot">仕訳機能セミナー</p>
-<aside>【2分（累計38分）】減価償却費は、すべて減価償却費とすることも、資産の種類・分類別に分けることも、用途別に分けることもある。製造原価・販管費などの区分は、用途別に勘定科目を分けて表すことが多い。勘定科目では分けず、ERPで部門などのマスタから区分を決めることもある。減価償却費の貸方は、間接法なら減価償却累計額、直接法なら資産勘定。減価償却費以外の費用・収益は、売却・除却・減損・圧縮記帳の取引ごとに、それぞれの勘定科目を使い、資産の種類などで細かく分けることもある。</aside>
+<aside>【2分（累計28.5分）】元帳は勘定科目×セグメントの単位で残高を持つ。そのため、セグメントは外部報告・管理会計の集計の単位であると同時に、台帳と元帳の同期の単位にもなる。仕訳には、会社が使うセグメントを持たせる。固定資産勘定の行は、台帳の資産のセグメントから編集する。費用・収益の行は、固定資産勘定の行と同じセグメントの項目を持ち、値も同じにすることが多い。そのうえで、部門・プロジェクトなどのより細かいセグメントを持つことも、持たずに固定資産勘定の行と同じ細かさにすることもある。固定資産の仕訳に、部門・プロジェクトなどだけを持ち、固定資産勘定の行と同じセグメントの項目を持たない行はない。固定資産勘定の行にも部門を持たせる場合に、費用・収益の行の部門の値を、資産を使う部門にすることもある。表の3行目は、資産は管理部、減価償却費は資産を使う製造1課という例。</aside>
 </section>
 
 </div>
-<nav class="nav"><a id="prev" href="24_account-asset.html">◀ 前へ</a><span>25 / 34</span><a href="00_目次.html">目次</a><a id="next" href="26_voucher-types.html">次へ ▶</a></nav>
+<nav class="nav"><a id="prev" href="20_items-dims.html">◀ 前へ</a><span>21 / 35</span><a href="00_目次.html">目次</a><a id="next" href="22_partner.html">次へ ▶</a></nav>
 
 <script>
 function fit() {

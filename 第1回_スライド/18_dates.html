@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
-<title>26 伝票の種類と仕訳の要件 | 仕訳機能セミナー</title>
+<title>18 ［記帳日］と［取引日］ | 仕訳機能セミナー</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
 <style>
 * { margin: 0; }
@@ -21,7 +21,7 @@ x-shape[kind="arrow-down"] { clip-path: polygon(30% 0, 70% 0, 70% 60%, 100% 60%,
 .nav a:hover { background: #3C4447; }
 .nav .off { color: #5E6A6F; padding: 6px 16px; border: 1px solid #3C4447; border-radius: 8px; }
 </style>
-<style>body { counter-reset: page 25; }
+<style>body { counter-reset: page 17; }
 body { font-family: 'Noto Sans JP', 'Yu Gothic', Meiryo, Arial, sans-serif; color: #1E292E; }
 
 section { counter-increment: page; background: #F7F8F6; padding: 128px 128px 160px; display: flex; flex-direction: column; gap: 20px; }
@@ -119,28 +119,21 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 </style>
 </head><body>
 <div class="stage">
-<section id="voucher-types" class="l2">
-<p class="eyebrow">4 固定資産に関係する伝票の種類</p>
-<h2>伝票の種類と仕訳の要件</h2>
-<p class="lead">伝票の種類ごとに、同期・費用・収益の計上・照合に必要な行を作る</p>
-<table class="tbl">
-<tr class="hd"><th style="width:18%">伝票の種類</th><th style="width:24%">台帳と元帳の同期</th><th style="width:30%">費用・収益の計上</th><th style="width:28%">他システムの仕訳との照合</th></tr>
-<tr class="ra"><td>取得</td><td>増加（個別仕訳）</td><td>－</td><td>債権・債務・仮勘定（建設仮勘定を含む）</td></tr>
-<tr class="ra"><td>売却</td><td>減少（個別仕訳）</td><td>売却損益</td><td>債権・債務・仮勘定</td></tr>
-<tr class="ra"><td>振替</td><td>振替（個別仕訳）</td><td>減価償却費（計上済みの分を振り替える場合）</td><td>－</td></tr>
-<tr class="ra"><td>除却</td><td>減少（個別仕訳）</td><td>除却損</td><td>－</td></tr>
-<tr class="ra"><td>減損</td><td>減少（個別仕訳）</td><td>減損損失</td><td>－</td></tr>
-<tr class="ra"><td>圧縮記帳</td><td>減少（個別仕訳）</td><td>圧縮損</td><td>－</td></tr>
-<tr class="ra"><td>減価償却</td><td>減少（定型仕訳）</td><td>減価償却費</td><td>－</td></tr>
-<tr class="ra"><td>過年度の訂正</td><td>訂正（個別仕訳）</td><td>相手勘定による</td><td>相手勘定による</td></tr>
+<section id="dates">
+<p class="eyebrow">2 仕訳の入力項目｜ヘッダ</p>
+<h2>［記帳日］と［取引日］</h2>
+<p class="lead">［記帳日］で会計期間を決め、［取引日］に取引が発生した日を入れる</p>
+<table class="tbl lg">
+<tr class="hd"><th style="width:14%">項目</th><th style="width:40%">表すこと</th><th style="width:46%">個別仕訳での日付</th></tr>
+<tr class="ra"><td>記帳日</td><td>どの会計期間の数値になるか（ERPでオープンしている会計期間内の日付）</td><td>取引日と同じ日／月末日（月次で集約する場合を含む）／処理日</td></tr>
+<tr class="ra"><td>取引日</td><td>取引が発生した日。台帳の日付と突き合わせる手がかり</td><td>取引日。月次で集約して伝票にする場合は、項目を持たないこともある</td></tr>
 </table>
-<p class="note">取消は元の伝票の逆仕訳なので、元の伝票の種類と同じ要件が関わる</p>
 <p class="foot">仕訳機能セミナー</p>
-<aside>【2.5分（累計40.5分）】ここから4部「固定資産に関係する伝票の種類」。伝票の種類ごとに、1部の3つの要件のどれが関わるかをまとめた。取得と売却は、固定資産勘定を増減させるうえに、債権・債務や仮勘定で他システムと照合する。売却は売却損益も計上するので、3つすべてが関わる。振替は固定資産勘定の付け替えで、計上済みの減価償却費を振り替える場合は費用・収益の計上も関わる。除却・減損・圧縮記帳・減価償却は、固定資産勘定を減らし、費用・収益を計上する。過年度の訂正は、相手勘定によって関わる要件が変わる。取消は元の伝票の逆仕訳なので、元の伝票の種類と同じ要件が関わる。</aside>
+<aside>【1.5分（累計22.5分）】記帳日は、どの会計期間の数値になるかを決める日で、ERPでオープンしている会計期間内の日付にする。個別仕訳では、取引日と同じ日にすることも、月末日にすることも、処理日にすることもある。月次で集約して伝票にする場合は月末日になる。取引日は取引が発生した日で、台帳の日付と突き合わせる手がかりになる。個別仕訳を月次で集約して伝票にする場合は、取引日の項目を持たないこともある。</aside>
 </section>
 
 </div>
-<nav class="nav"><a id="prev" href="25_account-pl.html">◀ 前へ</a><span>26 / 34</span><a href="00_目次.html">目次</a><a id="next" href="27_voucher-dates.html">次へ ▶</a></nav>
+<nav class="nav"><a id="prev" href="17_voucher.html">◀ 前へ</a><span>18 / 35</span><a href="00_目次.html">目次</a><a id="next" href="19_items-line.html">次へ ▶</a></nav>
 
 <script>
 function fit() {

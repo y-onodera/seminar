@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
-<title>24 固定資産勘定（BS） | 仕訳機能セミナー</title>
+<title>16 ヘッダ項目（伝票単位） | 仕訳機能セミナー</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
 <style>
 * { margin: 0; }
@@ -21,7 +21,7 @@ x-shape[kind="arrow-down"] { clip-path: polygon(30% 0, 70% 0, 70% 60%, 100% 60%,
 .nav a:hover { background: #3C4447; }
 .nav .off { color: #5E6A6F; padding: 6px 16px; border: 1px solid #3C4447; border-radius: 8px; }
 </style>
-<style>body { counter-reset: page 23; }
+<style>body { counter-reset: page 15; }
 body { font-family: 'Noto Sans JP', 'Yu Gothic', Meiryo, Arial, sans-serif; color: #1E292E; }
 
 section { counter-increment: page; background: #F7F8F6; padding: 128px 128px 160px; display: flex; flex-direction: column; gap: 20px; }
@@ -119,25 +119,28 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 </style>
 </head><body>
 <div class="stage">
-<section id="account-asset" class="l3">
-<p class="eyebrow">3 固定資産に関係する勘定科目</p>
-<h2>固定資産勘定（BS）</h2>
-<p class="lead">資産の種類・分類ごとに、記帳する資産勘定と減価償却累計額の有無を決めておく</p>
-<table class="tbl lg">
-<tr class="hd"><th style="width:28%">分類</th><th style="width:30%">資産勘定の例</th><th style="width:42%">減価償却累計額</th></tr>
-<tr class="ra"><td>有形固定資産（土地以外）</td><td>建物、機械装置</td><td>設ける（直接法とする場合は設けない）</td></tr>
-<tr class="ra"><td>土地</td><td>土地</td><td>なし（減価償却しない）</td></tr>
-<tr class="ra"><td>無形固定資産</td><td>ソフトウェア、特許権</td><td>設けないことが多い（直接法）</td></tr>
-<tr class="ra"><td>長期前払費用</td><td>長期前払費用</td><td>なし（直接減らして費用化）</td></tr>
-<tr class="ra"><td>繰延資産</td><td>開発費、創立費</td><td>なし（直接減らして償却）</td></tr>
+<section id="items-header">
+<p class="eyebrow">2 仕訳の入力項目｜ヘッダ</p>
+<h2>ヘッダ項目（伝票単位）</h2>
+<p class="lead">ヘッダに、会社・帳簿・伝票番号・日付など、伝票全体に共通する情報を入れる</p>
+<table class="tbl">
+<tr class="hd"><th style="width:24%">項目</th><th style="width:41%">内容</th><th style="width:35%">関係する要件</th></tr>
+<tr class="ra"><td>会社</td><td>記帳の単位となる法人</td><td>外部報告（法人別の財務諸表・連結）</td></tr>
+<tr class="ra"><td>帳簿（会計基準）</td><td>複数の会計基準で報告する場合の記帳先</td><td>外部報告</td></tr>
+<tr class="ra"><td>伝票番号</td><td>伝票を識別する番号</td><td>内部統制（監査証跡）</td></tr>
+<tr class="ra"><td>伝票の種類</td><td>取引の区分</td><td>同期（どの取引による増減か）</td></tr>
+<tr class="ra"><td>記帳日</td><td>会計期間を決める日</td><td>外部報告・管理会計、費用・収益の計上</td></tr>
+<tr class="ra"><td>取引日</td><td>取引が発生した日、証憑の日付</td><td>内部統制（監査証跡）</td></tr>
+<tr class="ra"><td>通貨・換算レート</td><td>取引通貨と換算の条件</td><td>外部報告</td></tr>
+<tr class="ra"><td>参照番号・摘要</td><td>元の取引や連携元のシステムで採番した番号、伝票の説明</td><td>内部統制（監査証跡）、同期、照合</td></tr>
+<tr class="ra"><td>取消の情報、入力者・承認者</td><td>取消元の伝票、誰が作り誰が承認したか</td><td>同期（取消）、内部統制（承認）</td></tr>
 </table>
-<p class="note">減損損失累計額は、設ける（間接控除形式）ことも、設けない（直接控除形式）こともある</p>
 <p class="foot">仕訳機能セミナー</p>
-<aside>【1.5分（累計36分）】資産勘定は、資産の分類（有形固定資産・無形固定資産・長期前払費用・繰延資産など）と種類（建物・機械装置など）ごとに決めておく。減価償却累計額を設けるか、つまり間接法か直接法かは資産の種類ごとに決める。すべての資産を直接法とすることもある。減損損失累計額も、設ける間接控除形式と、設けない直接控除形式がある。</aside>
+<aside>【1.5分（累計19.5分）】まずヘッダ。ヘッダは伝票全体に共通する項目。呼び方は製品で違い、帳簿は元帳、記帳日は転記日付・計上日、取引日は伝票日付・証憑日付などと呼ばれる。固定資産の仕訳での使い方として、会社は台帳の資産が属する会社、帳簿は固定資産システムの台帳（会計用・IFRS用など）とERPの帳簿の対応になる。伝票番号はERPの中で整合性をとって採番し、固定資産システムで採番した番号は参照番号に入れる事例が多い。参照番号には、照合のために、債権・債務管理システムなどと同じ番号（請求書番号・発注番号など）を編集して入れることもある。摘要は、取得・除却などの区分と対象の資産が分かる説明にする。入力者・承認者は、ERPの伝票から入力証憑で確認できればよいとする場合が一般的。</aside>
 </section>
 
 </div>
-<nav class="nav"><a id="prev" href="23_accounts.html">◀ 前へ</a><span>24 / 34</span><a href="00_目次.html">目次</a><a id="next" href="25_account-pl.html">次へ ▶</a></nav>
+<nav class="nav"><a id="prev" href="15_items-overview.html">◀ 前へ</a><span>16 / 35</span><a href="00_目次.html">目次</a><a id="next" href="17_voucher.html">次へ ▶</a></nav>
 
 <script>
 function fit() {
