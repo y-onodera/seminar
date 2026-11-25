@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
-<title>18 ［取引先］ | 仕訳機能セミナー</title>
+<title>16 ［記帳日］と［取引日］ | 仕訳機能セミナー</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
 <style>
 * { margin: 0; }
@@ -21,7 +21,7 @@ x-shape[kind="arrow-down"] { clip-path: polygon(30% 0, 70% 0, 70% 60%, 100% 60%,
 .nav a:hover { background: #3C4447; }
 .nav .off { color: #5E6A6F; padding: 6px 16px; border: 1px solid #3C4447; border-radius: 8px; }
 </style>
-<style>body { counter-reset: page 17; }
+<style>body { counter-reset: page 15; }
 body { font-family: 'Noto Sans JP', 'Yu Gothic', Meiryo, Arial, sans-serif; color: #1E292E; }
 
 section { counter-increment: page; background: #F7F8F6; padding: 128px 128px 160px; display: flex; flex-direction: column; gap: 20px; }
@@ -119,25 +119,21 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 </style>
 </head><body>
 <div class="stage">
-<section id="partner">
+<section id="dates">
 <p class="eyebrow">2 仕訳の入力項目</p>
-<h2>［取引先］</h2>
-<p class="lead">［取引先］を未払金・未収入金の行に入れ、消し込みの単位にする</p>
-<div class="row">
-<div class="flowbox"><h3>取得時（固定資産システム）</h3><p class="txt">(貸) 未払金<span class="u">［取引先A］</span></p></div>
-<x-shape kind="arrow-right" class="arr"></x-shape>
-<div class="flowbox"><h3>支払時（債務管理システム）</h3><p class="txt">(借) 未払金<span class="u">［取引先A］</span> ／ (貸) 預金</p></div>
-</div>
-<div class="card t0">
-<h3>固定資産勘定の行と費用・収益の行には持たせない</h3>
-<p class="txt">持たせると、元帳の残高が取引先別にも分かれ、台帳と突き合わせる単位がずれる</p>
-</div>
+<h2>［記帳日］と［取引日］</h2>
+<p class="lead">［記帳日］で会計期間を決め、［取引日］に取引が発生した日を入れる</p>
+<table class="tbl lg">
+<tr class="hd"><th style="width:14%">項目</th><th style="width:40%">表すこと</th><th style="width:46%">個別仕訳での日付</th></tr>
+<tr class="ra"><td>記帳日</td><td>どの会計期間の数値になるか（ERPでオープンしている会計期間内の日付）</td><td>取引日と同じ日／月末日（月次で集約する場合を含む）／処理日</td></tr>
+<tr class="ra"><td>取引日</td><td>取引が発生した日。台帳の日付と突き合わせる手がかり</td><td>取引日。月次で集約して伝票にする場合は、項目を持たないこともある</td></tr>
+</table>
 <p class="foot">仕訳機能セミナー</p>
-<aside>【1.5分（累計30分）】取引先は、未払金・未収入金の行に持たせ、消し込みの単位にする。必要に応じて参照番号（請求書番号など）も使う。計上時と消し込み時の取引先がそろって、はじめて取引先ごとに残高がゼロになる。取引先別の残高は、まだ支払っていない・入金されていない金額を表す。一方、固定資産勘定の行と費用・収益の行には取引先を持たせない。持たせると、元帳の残高が取引先別にも分かれ、台帳と突き合わせる単位がずれる。</aside>
+<aside>【1.5分（累計22.5分）】記帳日は、どの会計期間の数値になるかを決める日で、ERPでオープンしている会計期間内の日付にする。個別仕訳では、取引日と同じ日にすることも、月末日にすることも、処理日にすることもある。月次で集約して伝票にする場合は月末日になる。取引日は取引が発生した日で、台帳の日付と突き合わせる手がかりになる。個別仕訳を月次で集約して伝票にする場合は、取引日の項目を持たないこともある。</aside>
 </section>
 
 </div>
-<nav class="nav"><a id="prev" href="17_segment-lines.html">◀ 前へ</a><span>18 / 31</span><a href="00_目次.html">目次</a><a id="next" href="19_tax.html">次へ ▶</a></nav>
+<nav class="nav"><a id="prev" href="15_voucher.html">◀ 前へ</a><span>16 / 33</span><a href="00_目次.html">目次</a><a id="next" href="17_items-line.html">次へ ▶</a></nav>
 
 <script>
 function fit() {

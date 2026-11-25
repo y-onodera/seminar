@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
-<title>22 費用・収益の勘定（PL） | 仕訳機能セミナー</title>
+<title>30 減価償却費①：集約と配賦 | 仕訳機能セミナー</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
 <style>
 * { margin: 0; }
@@ -21,7 +21,7 @@ x-shape[kind="arrow-down"] { clip-path: polygon(30% 0, 70% 0, 70% 60%, 100% 60%,
 .nav a:hover { background: #3C4447; }
 .nav .off { color: #5E6A6F; padding: 6px 16px; border: 1px solid #3C4447; border-radius: 8px; }
 </style>
-<style>body { counter-reset: page 21; }
+<style>body { counter-reset: page 29; }
 body { font-family: 'Noto Sans JP', 'Yu Gothic', Meiryo, Arial, sans-serif; color: #1E292E; }
 
 section { counter-increment: page; background: #F7F8F6; padding: 128px 128px 160px; display: flex; flex-direction: column; gap: 20px; }
@@ -119,23 +119,36 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 </style>
 </head><body>
 <div class="stage">
-<section id="account-pl" class="l3">
-<p class="eyebrow">3 固定資産に関係する勘定科目</p>
-<h2>費用・収益の勘定（PL）</h2>
-<p class="lead">減価償却費の勘定科目を、資産の種類・用途から決めておく</p>
+<section id="dep-aggregate" class="l2">
+<p class="eyebrow">4 固定資産に関係する伝票の種類</p>
+<h2>減価償却費①：集約と配賦</h2>
+<p class="lead">資産ごとの減価償却費を、［勘定科目］× セグメントにまとめて計上する</p>
+<div class="row">
+<div class="col f4">
 <table class="tbl lg">
-<tr class="hd"><th style="width:34%">減価償却費の分け方</th><th style="width:66%">勘定科目の例</th></tr>
-<tr class="ra"><td>分けない</td><td>減価償却費</td></tr>
-<tr class="ra"><td>資産の種類・分類別</td><td>ソフトウェア償却費、長期前払費用の費用化の勘定科目、繰延資産償却</td></tr>
-<tr class="ra"><td>用途別</td><td>製造経費・減価償却費、販管費・減価償却費</td></tr>
+<tr class="hd"><th style="width:30%">資産</th><th style="width:70%">資産を使う部門</th></tr>
+<tr class="ra"><td>機械A</td><td>製造1課</td></tr>
+<tr class="ra"><td>機械B</td><td>製造1課</td></tr>
+<tr class="ra"><td>機械C</td><td>製造1課・製造2課に配賦</td></tr>
 </table>
-<p class="note">減価償却費以外：売却損益・除却損・減損損失・圧縮損を、取引ごとに使う</p>
+</div>
+<x-shape kind="arrow-right" class="arr"></x-shape>
+<div class="col f6">
+<table class="tbl lg">
+<tr class="hd"><th style="width:12%">貸借</th><th style="width:32%">勘定科目</th><th style="width:56%">セグメント</th></tr>
+<tr class="r2"><td>借</td><td>減価償却費</td><td>事業X・製造1課（機械A・B・Cの分）</td></tr>
+<tr class="r2"><td>借</td><td>減価償却費</td><td>事業X・製造2課（機械Cの分）</td></tr>
+<tr class="r1"><td>貸</td><td>減価償却累計額</td><td>事業X</td></tr>
+</table>
+</div>
+</div>
+<p class="note">繰延資産の償却、長期前払費用の費用化も、仕訳の形は同じ</p>
 <p class="foot">仕訳機能セミナー</p>
-<aside>【2分（累計38分）】減価償却費は、すべて減価償却費とすることも、資産の種類・分類別に分けることも、用途別に分けることもある。製造原価・販管費などの区分は、用途別に勘定科目を分けて表すことが多い。勘定科目では分けず、ERPで部門などのマスタから区分を決めることもある。減価償却費の貸方は、間接法なら減価償却累計額、直接法なら資産勘定。減価償却費以外の費用・収益は、売却・除却・減損・圧縮記帳の取引ごとに、それぞれの勘定科目を使い、資産の種類などで細かく分けることもある。</aside>
+<aside>【2分（累計51.5分）】減価償却は定型仕訳。集約する場合は、資産ごとの減価償却費を勘定科目×セグメントの単位にまとめ、仕訳の行では資産を区別しない。減価償却費を複数の部門に配賦する場合は、1つの資産から部門ごとの行が作られる。例では、機械Cの減価償却費が製造1課と製造2課の行に分かれる。伝票は、固定資産勘定の行のセグメントごとに分けることが多く、対象期間の分を1つの伝票にすることも、資産ごとに分けることもある。繰延資産の償却、長期前払費用の費用化も、仕訳の形は同じ。</aside>
 </section>
 
 </div>
-<nav class="nav"><a id="prev" href="21_account-asset.html">◀ 前へ</a><span>22 / 31</span><a href="00_目次.html">目次</a><a id="next" href="23_voucher-types.html">次へ ▶</a></nav>
+<nav class="nav"><a id="prev" href="29_asset-reduction.html">◀ 前へ</a><span>30 / 33</span><a href="00_目次.html">目次</a><a id="next" href="31_dep-transfer.html">次へ ▶</a></nav>
 
 <script>
 function fit() {
