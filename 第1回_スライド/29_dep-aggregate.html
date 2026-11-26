@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
-<title>33 質疑応答 | 仕訳機能セミナー</title>
+<title>29 減価償却費①：集約と配賦 | 仕訳機能セミナー</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
 <style>
 * { margin: 0; }
@@ -21,7 +21,7 @@ x-shape[kind="arrow-down"] { clip-path: polygon(30% 0, 70% 0, 70% 60%, 100% 60%,
 .nav a:hover { background: #3C4447; }
 .nav .off { color: #5E6A6F; padding: 6px 16px; border: 1px solid #3C4447; border-radius: 8px; }
 </style>
-<style>body { counter-reset: page 32; }
+<style>body { counter-reset: page 28; }
 body { font-family: 'Noto Sans JP', 'Yu Gothic', Meiryo, Arial, sans-serif; color: #1E292E; }
 
 section { counter-increment: page; background: #F7F8F6; padding: 128px 128px 160px; display: flex; flex-direction: column; gap: 20px; }
@@ -119,20 +119,36 @@ h2 { font-size: 48px; font-weight: 700; color: #16343A; line-height: 1.2; }
 </style>
 </head><body>
 <div class="stage">
-<section id="closing" class="closing">
-<h2>質疑応答</h2>
-<div class="badges">
-<p class="badge b1">1 仕訳の要件</p>
-<p class="badge b0">2 仕訳の入力項目</p>
-<p class="badge b3">3 勘定科目</p>
-<p class="badge b2">4 伝票の種類</p>
+<section id="dep-aggregate" class="l2">
+<p class="eyebrow">4 固定資産に関係する伝票の種類</p>
+<h2>減価償却費①：集約と配賦</h2>
+<p class="lead">減価償却の伝票は、資産ごとの減価償却費を、［勘定科目］× セグメントにまとめて計上する</p>
+<div class="row">
+<div class="col f4">
+<table class="tbl lg">
+<tr class="hd"><th style="width:30%">資産</th><th style="width:70%">資産を使う部門</th></tr>
+<tr class="ra"><td>機械A</td><td>製造1課</td></tr>
+<tr class="ra"><td>機械B</td><td>製造1課</td></tr>
+<tr class="ra"><td>機械C</td><td>製造1課・製造2課に配賦</td></tr>
+</table>
 </div>
-<p class="txt">ご質問をお受けします</p>
-<aside>【4分（累計60分）】残りの時間で質疑応答。要件・入力項目・勘定科目・伝票の種類のどこからでも質問を受ける。</aside>
+<x-shape kind="arrow-right" class="arr"></x-shape>
+<div class="col f6">
+<table class="tbl lg">
+<tr class="hd"><th style="width:12%">貸借</th><th style="width:32%">勘定科目</th><th style="width:56%">セグメント</th></tr>
+<tr class="r2"><td>借</td><td>減価償却費</td><td>事業X・製造1課（機械A・B・Cの分）</td></tr>
+<tr class="r2"><td>借</td><td>減価償却費</td><td>事業X・製造2課（機械Cの分）</td></tr>
+<tr class="r1"><td>貸</td><td>減価償却累計額</td><td>事業X</td></tr>
+</table>
+</div>
+</div>
+<p class="note">繰延資産の償却、長期前払費用の費用化も、仕訳の形は同じ</p>
+<p class="foot">仕訳機能セミナー</p>
+<aside>【2分（累計49.5分）】減価償却は定型仕訳。集約する場合は、資産ごとの減価償却費を勘定科目×セグメントの単位にまとめ、仕訳の行では資産を区別しない。減価償却費を複数の部門に配賦する場合は、1つの資産から部門ごとの行が作られる。例では、機械Cの減価償却費が製造1課と製造2課の行に分かれる。伝票は、固定資産勘定の行のセグメントごとに分けることが多く、対象期間の分を1つの伝票にすることも、資産ごとに分けることもある。繰延資産の償却、長期前払費用の費用化も、仕訳の形は同じ。</aside>
 </section>
 
 </div>
-<nav class="nav"><a id="prev" href="32_prior-year.html">◀ 前へ</a><span>33 / 33</span><a href="00_目次.html">目次</a><span class="off">次へ ▶</span></nav>
+<nav class="nav"><a id="prev" href="28_asset-reduction.html">◀ 前へ</a><span>29 / 32</span><a href="00_目次.html">目次</a><a id="next" href="30_dep-transfer.html">次へ ▶</a></nav>
 
 <script>
 function fit() {
