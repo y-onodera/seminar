@@ -20,6 +20,7 @@
 | `deck/project/` | HTMLスライドの元ファイル（`deck.json`・`deck.css`・`slides/*.html`）。claude.ai の Slides 型 Artifact（非公開）としても公開している。Artifact の更新はローカルの Claude Code から行う（file_path に `deck.json`、root に `deck` フォルダ、files に変更したスライド） |
 | `export_html.py` | `python -I export_html.py` で、`第1回_スライド/`（1枚1ファイルのHTML、ダブルクリックで開ける）と `第1回_スライドノート.txt` を書き出す |
 | `第1回_スライド/`、`第1回_スライドノート.txt` | 書き出したローカル配布用のスライドとノート（生成物） |
+| `deck3/project/`、`第3回_スライド/`、`第3回_スライドノート.txt` | 第3回のスライドの元ファイルと、`python -I export_html.py 3` で書き出したスライドとノート（生成物） |
 | `build_deck.py` | 旧PowerPoint版の生成スクリプト（再構成前の産物。参考のみ） |
 
 ## 作業の進め方

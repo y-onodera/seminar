@@ -12,6 +12,8 @@
 | スライド（目次） | [第1回 スライド 目次](https://y-onodera.github.io/seminar/%E7%AC%AC1%E5%9B%9E_%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%89/00_%E7%9B%AE%E6%AC%A1.html) |
 | スライド（1枚目から順に見る） | [第1回 スライド](https://y-onodera.github.io/seminar/%E7%AC%AC1%E5%9B%9E_%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%89/01_cover.html) |
 | スライドノート | [第1回_スライドノート.txt](%E7%AC%AC1%E5%9B%9E_%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%89%E3%83%8E%E3%83%BC%E3%83%88.txt) |
+| 第3回 スライド（目次） | [第3回 スライド 目次](https://y-onodera.github.io/seminar/%E7%AC%AC3%E5%9B%9E_%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%89/00_%E7%9B%AE%E6%AC%A1.html) |
+| 第3回 スライドノート | [第3回_スライドノート.txt](%E7%AC%AC3%E5%9B%9E_%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%89%E3%83%8E%E3%83%BC%E3%83%88.txt) |
 
 - スライドは GitHub Pages（https://y-onodera.github.io/seminar/）で公開しています。main ブランチの `第1回_スライド/` をそのまま表示します
 - スライドとノートは `export_html.py` で書き出した生成物です。骨子の最新の変更は、まだスライドに反映していないことがあります（反映の状況は骨子の決定事項ログを参照）

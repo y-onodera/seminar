@@ -5,17 +5,20 @@
 - 同じフォルダーに全ページがある前提で、前後のページと目次へハイパーリンクでつなぐ
 - スピーカーノートは別のテキストファイルにまとめる
 
-実行：python -I export_html.py
+実行：python -I export_html.py（第1回：deck/project → 第1回_スライド/）
+　　　python -I export_html.py 3（第3回：deck3/project → 第3回_スライド/）
 """
 import html
 import json
 import re
+import sys
 from pathlib import Path
 
 HERE = Path(__file__).parent
-SRC = HERE / "deck" / "project"
-OUT = HERE / "第1回_スライド"
-NOTES = HERE / "第1回_スライドノート.txt"
+SESSION = sys.argv[1] if len(sys.argv) > 1 else "1"
+SRC = HERE / ("deck" if SESSION == "1" else f"deck{SESSION}") / "project"
+OUT = HERE / f"第{SESSION}回_スライド"
+NOTES = HERE / f"第{SESSION}回_スライドノート.txt"
 
 deck = json.loads((SRC / "deck.json").read_text(encoding="utf-8"))
 deck_css = (SRC / "deck.css").read_text(encoding="utf-8")
